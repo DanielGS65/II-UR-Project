@@ -26,6 +26,7 @@ namespace URProject {
 
         FormManualMove manualMoveForm;
         FormInfoSistema formInfoSistema;
+        Form_dioni form_dioni;
 
         IPAddress ipAddress;
         IPEndPoint ipEndPoint;
@@ -44,11 +45,13 @@ namespace URProject {
             Logging.LogInformation(1,"Logging Started");
 
             manualMoveForm = new FormManualMove();
+            formInfoSistema = new FormInfoSistema();
+            form_dioni = new Form_dioni
             //manualMoveForm.TopLevel = false;
             //this.panelManualMove.Controls.Add(manualMoveForm);
             manualMoveForm.Show();
 
-            formInfoSistema = new FormInfoSistema();
+            
 
 
             //Start ClassRTDE
@@ -93,5 +96,10 @@ namespace URProject {
         }
 
         #endregion FormFunctions
+
+        private void boton_dioni_Click(object sender, EventArgs e)
+        {
+            form_dioni.Show();
+        }
     }
 }
