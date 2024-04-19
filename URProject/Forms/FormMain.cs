@@ -25,6 +25,7 @@ namespace URProject {
         ClassRTDE rtdeClass;
 
         FormManualMove manualMoveForm;
+        FormInfoSistema formInfoSistema;
 
         IPAddress ipAddress;
         IPEndPoint ipEndPoint;
@@ -46,6 +47,9 @@ namespace URProject {
             //manualMoveForm.TopLevel = false;
             //this.panelManualMove.Controls.Add(manualMoveForm);
             manualMoveForm.Show();
+
+            formInfoSistema = new FormInfoSistema();
+
 
             //Start ClassRTDE
             rtdeClass = new ClassRTDE(this);
@@ -87,7 +91,7 @@ namespace URProject {
 
         private void buttonDebugMarcos(object sender, EventArgs e)
         {
-
+            formInfoSistema.Show();
         }
     }
 }
