@@ -13,5 +13,6 @@ namespace URProject.Classes {
             this.mainForm = mainForm;
             Logging.LogInformation(1, "ClassRTDE - Initialization Completed");
         }
+
     }
 }
