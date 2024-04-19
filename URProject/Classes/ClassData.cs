@@ -9,5 +9,6 @@ namespace URProject {
         public static string logPath = "UR-Proyect";
         public static string ip = "192.168.50.3";
         public static int port = 30004;
+        public static int logLevel = 0;
     }
 }
