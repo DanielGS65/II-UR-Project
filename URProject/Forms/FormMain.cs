@@ -46,7 +46,7 @@ namespace URProject {
 
             manualMoveForm = new FormManualMove();
             formInfoSistema = new FormInfoSistema();
-            form_dioni = new Form_dioni
+            form_dioni = new Form_dioni();
             //manualMoveForm.TopLevel = false;
             //this.panelManualMove.Controls.Add(manualMoveForm);
             manualMoveForm.Show();
