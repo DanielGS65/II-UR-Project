@@ -28,6 +28,7 @@ namespace URProject {
             this.button1 = new System.Windows.Forms.Button();
             this.panelManualMove = new System.Windows.Forms.Panel();
             this.buttonMarcos = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -59,11 +60,22 @@ namespace URProject {
             this.buttonMarcos.UseVisualStyleBackColor = true;
             this.buttonMarcos.Click += new System.EventHandler(this.buttonDebugMarcos);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(561, 126);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(113, 52);
+            this.button2.TabIndex = 3;
+            this.button2.Text = "Botón de Dioni";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 360);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonMarcos);
             this.Controls.Add(this.panelManualMove);
             this.Controls.Add(this.button1);
@@ -79,6 +91,7 @@ namespace URProject {
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelManualMove;
         private System.Windows.Forms.Button buttonMarcos;
+        private System.Windows.Forms.Button button2;
     }
 }
 
