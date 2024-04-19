@@ -8,10 +8,12 @@ namespace URProject.Classes {
     public class ClassRTDE {
 
         FormMain mainForm;
-
+        //hola caracola
         public ClassRTDE(FormMain mainForm) {
             this.mainForm = mainForm;
             Logging.LogInformation(1, "ClassRTDE - Initialization Completed");
         }
+
+        //algo
     }
 }
