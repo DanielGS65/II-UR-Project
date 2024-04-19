@@ -16,5 +16,11 @@ namespace URProject.Forms
         {
             InitializeComponent();
         }
+
+        private void clickButton(object sender, EventArgs e)
+        {
+            Button button = (Button)sender;
+            string name = button.Name;
+        }
     }
 }

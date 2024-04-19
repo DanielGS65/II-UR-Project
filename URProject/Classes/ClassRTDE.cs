@@ -14,13 +14,9 @@ namespace URProject.Classes {
             Logging.LogInformation(1, "ClassRTDE - Initialization Completed");
         }
 
-        #region Pedir datos a UR
-
-
-        public void leerTimeStamp()
+        public void clickButton()
         {
-
+            moveRobot(X, Y, Z);
         }
-        #endregion
     }
 }
