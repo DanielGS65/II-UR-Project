@@ -44,14 +44,17 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UnderAutomation.UniversalRobots, Version=7.3.1.0, Culture=neutral, PublicKeyToken=a76e62f1cf6da199, processorArchitecture=MSIL">
-      <HintPath>..\packages\UnderAutomation.UniversalRobots.7.3.1\lib\net472\UnderAutomation.UniversalRobots.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ClassData.cs" />
     <Compile Include="Classes\ClassLogging.cs" />
     <Compile Include="Classes\ClassRTDE.cs" />
+    <Compile Include="Forms\FormInfoSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormInfoSistema.Designer.cs">
+      <DependentUpon>FormInfoSistema.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -64,13 +67,25 @@
     <Compile Include="Forms\FormManualMove.Designer.cs">
       <DependentUpon>FormManualMove.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Form_dioni.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Form_dioni.Designer.cs">
+      <DependentUpon>Form_dioni.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormInfoSistema.resx">
+      <DependentUpon>FormInfoSistema.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormManualMove.resx">
       <DependentUpon>FormManualMove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_dioni.resx">
+      <DependentUpon>Form_dioni.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -81,7 +96,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
