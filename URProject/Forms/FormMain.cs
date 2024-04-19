@@ -78,7 +78,7 @@ namespace URProject {
 
         private void button1_Click(object sender, EventArgs e) {
 
-            var message = "movej(p[-0.175, -0.607, 0.092, 1.211, -1.215, 1.113], a = 1, v = 0.25)" + "\n";
+            var message = "movej(p[0.2, -0.2, 0.5, 0, 2, -2], a = 1, v = 0.25, r =0, t =10)" + "\n";
             var messageBytes = Encoding.UTF8.GetBytes(message);
             client.Send(messageBytes);
         }
