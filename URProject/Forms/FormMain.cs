@@ -12,6 +12,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Net.NetworkInformation;
 using URProject.Classes;
+using URProject.Forms;
 
 namespace URProject {
     public partial class FormMain : Form {
@@ -22,6 +23,8 @@ namespace URProject {
         #region LocalVariables
 
         ClassRTDE rtdeClass;
+
+        FormManualMove manualMoveForm;
 
         IPAddress ipAddress;
         IPEndPoint ipEndPoint;
@@ -38,6 +41,11 @@ namespace URProject {
             InitializeComponent();
             Logging.CreateLogFile();
             Logging.LogInformation(1,"Logging Started");
+
+            manualMoveForm = new FormManualMove();
+            //manualMoveForm.TopLevel = false;
+            //this.panelManualMove.Controls.Add(manualMoveForm);
+            manualMoveForm.Show();
 
             //Start ClassRTDE
             rtdeClass = new ClassRTDE(this);

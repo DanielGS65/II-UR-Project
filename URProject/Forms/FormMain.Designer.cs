@@ -1,4 +1,6 @@
-﻿namespace URProject {
+﻿using URProject.Forms;
+
+namespace URProject {
     partial class FormMain {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -24,11 +26,12 @@
         /// </summary>
         private void InitializeComponent() {
             this.button1 = new System.Windows.Forms.Button();
+            this.panelManualMove = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(57, 48);
+            this.button1.Location = new System.Drawing.Point(674, 398);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 0;
@@ -36,13 +39,21 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // panelManualMove
+            // 
+            this.panelManualMove.Location = new System.Drawing.Point(12, 12);
+            this.panelManualMove.Name = "panelManualMove";
+            this.panelManualMove.Size = new System.Drawing.Size(291, 210);
+            this.panelManualMove.TabIndex = 1;
+            // 
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.panelManualMove);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.Text = "Form1";
             this.ResumeLayout(false);
 
@@ -51,6 +62,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel panelManualMove;
     }
 }
 
