@@ -87,11 +87,11 @@ namespace URProject {
             client.Send(messageBytes);
         }
 
-        #endregion FormFunctions
-
         private void buttonDebugMarcos(object sender, EventArgs e)
         {
             formInfoSistema.Show();
         }
+
+        #endregion FormFunctions
     }
 }
