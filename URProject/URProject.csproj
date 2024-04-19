@@ -75,6 +75,9 @@
     <EmbeddedResource Include="Forms\FormManualMove.resx">
       <DependentUpon>FormManualMove.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Form_dioni.resx">
+      <DependentUpon>Form_dioni.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

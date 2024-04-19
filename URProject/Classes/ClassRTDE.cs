@@ -14,6 +14,9 @@ namespace URProject.Classes {
             Logging.LogInformation(1, "ClassRTDE - Initialization Completed");
         }
 
-        //algo
+        public void clickButton()
+        {
+            moveRobot(X, Y, Z);
+        }
     }
 }
