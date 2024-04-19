@@ -49,6 +49,12 @@
     <Compile Include="Classes\ClassData.cs" />
     <Compile Include="Classes\ClassLogging.cs" />
     <Compile Include="Classes\ClassRTDE.cs" />
+    <Compile Include="Forms\FormInfoSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormInfoSistema.Designer.cs">
+      <DependentUpon>FormInfoSistema.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormInfoSistema.resx">
+      <DependentUpon>FormInfoSistema.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
