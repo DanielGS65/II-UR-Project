@@ -14,6 +14,13 @@ namespace URProject.Classes {
             Logging.LogInformation(1, "ClassRTDE - Initialization Completed");
         }
 
-        //algo
+        #region Pedir datos a UR
+
+
+        public void leerTimeStamp()
+        {
+
+        }
+        #endregion
     }
 }
