@@ -158,6 +158,10 @@ namespace URProject {
             settingsForm.Show();
         }
 
+        private void notifyIconMain_MouseDoubleClick(object sender, MouseEventArgs e) {
+            this.Show();
+        }
+
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e) {
             if (e.CloseReason == CloseReason.UserClosing) {
                 this.Hide();
