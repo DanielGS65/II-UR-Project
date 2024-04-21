@@ -32,16 +32,18 @@ namespace URProject {
             this.buttonMarcos = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.buttonManualMove = new System.Windows.Forms.Button();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.panelConectionStatus = new System.Windows.Forms.Panel();
             this.panelConectionLed = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.labelConectionStatus = new System.Windows.Forms.Label();
-            this.labelAuthors2 = new System.Windows.Forms.Label();
-            this.labelAuthors = new System.Windows.Forms.Label();
+            this.labelIP = new System.Windows.Forms.Label();
+            this.labelRobot = new System.Windows.Forms.Label();
             this.labelTitle = new System.Windows.Forms.Label();
             this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
-            this.buttonManualMove = new System.Windows.Forms.Button();
+            this.panelRobotPosition = new System.Windows.Forms.Panel();
+            this.labelPort = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelConectionStatus.SuspendLayout();
             this.SuspendLayout();
@@ -63,10 +65,10 @@ namespace URProject {
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelMainContainer.BackColor = System.Drawing.Color.Gainsboro;
-            this.panelMainContainer.Location = new System.Drawing.Point(352, 11);
+            this.panelMainContainer.Location = new System.Drawing.Point(352, 102);
             this.panelMainContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMainContainer.Name = "panelMainContainer";
-            this.panelMainContainer.Size = new System.Drawing.Size(773, 574);
+            this.panelMainContainer.Size = new System.Drawing.Size(773, 483);
             this.panelMainContainer.TabIndex = 1;
             // 
             // buttonMarcos
@@ -103,19 +105,37 @@ namespace URProject {
             this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.panelMenu.Controls.Add(this.labelPort);
             this.panelMenu.Controls.Add(this.buttonManualMove);
             this.panelMenu.Controls.Add(this.buttonConnect);
             this.panelMenu.Controls.Add(this.button2);
             this.panelMenu.Controls.Add(this.button1);
             this.panelMenu.Controls.Add(this.panelConectionStatus);
             this.panelMenu.Controls.Add(this.buttonMarcos);
-            this.panelMenu.Controls.Add(this.labelAuthors2);
-            this.panelMenu.Controls.Add(this.labelAuthors);
+            this.panelMenu.Controls.Add(this.labelIP);
+            this.panelMenu.Controls.Add(this.labelRobot);
             this.panelMenu.Controls.Add(this.labelTitle);
             this.panelMenu.Location = new System.Drawing.Point(-15, -7);
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(347, 609);
             this.panelMenu.TabIndex = 4;
+            // 
+            // buttonManualMove
+            // 
+            this.buttonManualMove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.buttonManualMove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.buttonManualMove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonManualMove.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonManualMove.ForeColor = System.Drawing.Color.White;
+            this.buttonManualMove.Location = new System.Drawing.Point(16, 360);
+            this.buttonManualMove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonManualMove.Name = "buttonManualMove";
+            this.buttonManualMove.Size = new System.Drawing.Size(329, 64);
+            this.buttonManualMove.TabIndex = 7;
+            this.buttonManualMove.TabStop = false;
+            this.buttonManualMove.Text = "Manual Move";
+            this.buttonManualMove.UseVisualStyleBackColor = false;
+            this.buttonManualMove.Click += new System.EventHandler(this.buttonManualMove_Click);
             // 
             // buttonConnect
             // 
@@ -173,27 +193,27 @@ namespace URProject {
             this.labelConectionStatus.TabIndex = 4;
             this.labelConectionStatus.Text = "Disconected";
             // 
-            // labelAuthors2
+            // labelIP
             // 
-            this.labelAuthors2.AutoSize = true;
-            this.labelAuthors2.Font = new System.Drawing.Font("Segoe UI", 8F);
-            this.labelAuthors2.ForeColor = System.Drawing.Color.White;
-            this.labelAuthors2.Location = new System.Drawing.Point(27, 115);
-            this.labelAuthors2.Name = "labelAuthors2";
-            this.labelAuthors2.Size = new System.Drawing.Size(122, 21);
-            this.labelAuthors2.TabIndex = 2;
-            this.labelAuthors2.Text = "dgs65 - dmm84";
+            this.labelIP.AutoSize = true;
+            this.labelIP.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelIP.ForeColor = System.Drawing.Color.White;
+            this.labelIP.Location = new System.Drawing.Point(27, 115);
+            this.labelIP.Name = "labelIP";
+            this.labelIP.Size = new System.Drawing.Size(32, 28);
+            this.labelIP.TabIndex = 2;
+            this.labelIP.Text = "IP:";
             // 
-            // labelAuthors
+            // labelRobot
             // 
-            this.labelAuthors.AutoSize = true;
-            this.labelAuthors.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAuthors.ForeColor = System.Drawing.Color.White;
-            this.labelAuthors.Location = new System.Drawing.Point(134, 78);
-            this.labelAuthors.Name = "labelAuthors";
-            this.labelAuthors.Size = new System.Drawing.Size(87, 28);
-            this.labelAuthors.TabIndex = 1;
-            this.labelAuthors.Text = "Authors";
+            this.labelRobot.AutoSize = true;
+            this.labelRobot.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelRobot.ForeColor = System.Drawing.Color.White;
+            this.labelRobot.Location = new System.Drawing.Point(126, 83);
+            this.labelRobot.Name = "labelRobot";
+            this.labelRobot.Size = new System.Drawing.Size(113, 28);
+            this.labelRobot.TabIndex = 1;
+            this.labelRobot.Text = "Robot Info";
             // 
             // labelTitle
             // 
@@ -212,22 +232,26 @@ namespace URProject {
             this.notifyIconMain.Text = "UR-Project";
             this.notifyIconMain.Visible = true;
             // 
-            // buttonManualMove
+            // panelRobotPosition
             // 
-            this.buttonManualMove.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.buttonManualMove.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
-            this.buttonManualMove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonManualMove.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.buttonManualMove.ForeColor = System.Drawing.Color.White;
-            this.buttonManualMove.Location = new System.Drawing.Point(16, 360);
-            this.buttonManualMove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonManualMove.Name = "buttonManualMove";
-            this.buttonManualMove.Size = new System.Drawing.Size(329, 64);
-            this.buttonManualMove.TabIndex = 7;
-            this.buttonManualMove.TabStop = false;
-            this.buttonManualMove.Text = "Manual Move";
-            this.buttonManualMove.UseVisualStyleBackColor = false;
-            this.buttonManualMove.Click += new System.EventHandler(this.buttonManualMove_Click);
+            this.panelRobotPosition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelRobotPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.panelRobotPosition.Location = new System.Drawing.Point(331, -7);
+            this.panelRobotPosition.Name = "panelRobotPosition";
+            this.panelRobotPosition.Size = new System.Drawing.Size(815, 93);
+            this.panelRobotPosition.TabIndex = 5;
+            // 
+            // labelPort
+            // 
+            this.labelPort.AutoSize = true;
+            this.labelPort.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelPort.ForeColor = System.Drawing.Color.White;
+            this.labelPort.Location = new System.Drawing.Point(199, 115);
+            this.labelPort.Name = "labelPort";
+            this.labelPort.Size = new System.Drawing.Size(63, 28);
+            this.labelPort.TabIndex = 8;
+            this.labelPort.Text = "PORT:";
             // 
             // FormMain
             // 
@@ -235,17 +259,18 @@ namespace URProject {
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
             this.ClientSize = new System.Drawing.Size(1137, 598);
+            this.Controls.Add(this.panelRobotPosition);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelMainContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FormMain";
             this.Text = "UR-Project";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             this.panelConectionStatus.ResumeLayout(false);
             this.panelConectionStatus.PerformLayout();
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.ResumeLayout(false);
 
         }
@@ -258,15 +283,17 @@ namespace URProject {
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Label labelTitle;
-        private System.Windows.Forms.Label labelAuthors;
-        private System.Windows.Forms.Label labelAuthors2;
+        private System.Windows.Forms.Label labelRobot;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelConectionStatus;
         private System.Windows.Forms.Panel panelConectionStatus;
-        private System.Windows.Forms.Panel panelConectionLed;
         private System.Windows.Forms.Button buttonConnect;
         public System.Windows.Forms.NotifyIcon notifyIconMain;
         private System.Windows.Forms.Button buttonManualMove;
+        private System.Windows.Forms.Panel panelRobotPosition;
+        public System.Windows.Forms.Label labelPort;
+        public System.Windows.Forms.Label labelIP;
+        public System.Windows.Forms.Label labelConectionStatus;
+        public System.Windows.Forms.Panel panelConectionLed;
     }
 }
 

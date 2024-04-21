@@ -52,6 +52,7 @@
     <Compile Include="Classes\ClassData.cs" />
     <Compile Include="Classes\ClassLogging.cs" />
     <Compile Include="Classes\ClassRTDE.cs" />
+    <Compile Include="Classes\ClassXml.cs" />
     <Compile Include="Forms\FormInfoSistema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +71,12 @@
     <Compile Include="Forms\FormManualMove.Designer.cs">
       <DependentUpon>FormManualMove.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form_dioni.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormManualMove.resx">
       <DependentUpon>FormManualMove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_dioni.resx">
       <DependentUpon>Form_dioni.cs</DependentUpon>

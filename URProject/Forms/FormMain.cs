@@ -22,9 +22,11 @@ namespace URProject {
         // ---------------------------
         #region LocalVariables
 
+        ClassXml xmlClass;
         ClassRTDE rtdeClass;
 
         FormManualMove manualMoveForm;
+        FormSettings settingsForm;
 
         IPAddress ipAddress;
         IPEndPoint ipEndPoint;
@@ -47,14 +49,27 @@ namespace URProject {
             notifyIconMain.ContextMenuStrip.Items.Add("Settings", null, Settings_Click);
             notifyIconMain.ContextMenuStrip.Items.Add("Exit", null, Exit_Click);
 
+            //Start Classes
+            xmlClass = new ClassXml(this);
+            rtdeClass = new ClassRTDE(this);
+
             //Forms Init
             manualMoveForm = new FormManualMove();
             manualMoveForm.TopLevel = false;
             this.panelMainContainer.Controls.Add(manualMoveForm);
 
+            settingsForm = new FormSettings(this,xmlClass);
 
-            //Start ClassRTDE
-            rtdeClass = new ClassRTDE(this);
+            //Start Secuence
+            xmlClass.readConfig();
+            this.labelIP.Text = "IP: " + ClassData.robotIp;
+            this.labelPort.Text = "Port: " + ClassData.robotPort.ToString();
+
+            if(ClassData.robotIp == "" || ClassData.robotPort.ToString() == "0") {
+                settingsForm.updateConfig();
+                settingsForm.Show();
+            }
+
 
             //Check UR Connections
             /*Ping pinger = new Ping();
@@ -139,7 +154,8 @@ namespace URProject {
         }
 
         private void Settings_Click(object sender, EventArgs e) {
-
+            settingsForm.updateConfig();
+            settingsForm.Show();
         }
 
         private void FormMain_FormClosing(object sender, FormClosingEventArgs e) {
