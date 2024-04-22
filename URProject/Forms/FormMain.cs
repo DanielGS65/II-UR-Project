@@ -56,24 +56,9 @@ namespace URProject {
 
             //Start ClassRTDE
             rtdeClass = new ClassRTDE(this);
+            rtdeClass.connectSocket();
 
-            //Check UR Connections
-            Ping pinger = new Ping();
-            PingReply reply = pinger.Send(ClassData.ip);
-            if (reply.Status != IPStatus.Success) {
-                Logging.LogInformation(2, "FormMain - UR is disconected");
-            } else {
-
-                //Connect to UR
-                this.ipAddress = IPAddress.Parse(ClassData.ip);
-                this.ipEndPoint = new IPEndPoint(ipAddress, ClassData.port);
-
-                this.client = new Socket(ipEndPoint.AddressFamily, SocketType.Stream,
-                ProtocolType.Tcp);
-                client.Connect(ipEndPoint);
-                Logging.LogInformation(1, "FormMain - UR is connected");
-            }
-            Logging.LogInformation(1, "FormMain - Initialization Completed");
+            formInfoSistema.setRTDE(rtdeClass);
         }
 
         #endregion InitFunctions
