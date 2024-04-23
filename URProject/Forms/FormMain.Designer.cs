@@ -104,7 +104,7 @@ namespace URProject {
             this.buttonMarcos.UseVisualStyleBackColor = false;
             this.buttonMarcos.Click += new System.EventHandler(this.buttonDebugMarcos);
             // 
-            // button2
+            // boton_dioni
             // 
             this.button2.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(15, 525);
