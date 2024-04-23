@@ -32,6 +32,8 @@ namespace URProject {
             this.buttonMarcos = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.buttonLogging = new System.Windows.Forms.Button();
+            this.labelPort = new System.Windows.Forms.Label();
             this.buttonManualMove = new System.Windows.Forms.Button();
             this.buttonConnect = new System.Windows.Forms.Button();
             this.panelConectionStatus = new System.Windows.Forms.Panel();
@@ -43,14 +45,28 @@ namespace URProject {
             this.labelTitle = new System.Windows.Forms.Label();
             this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.panelRobotPosition = new System.Windows.Forms.Panel();
-            this.labelPort = new System.Windows.Forms.Label();
+            this.textBoxPosX = new System.Windows.Forms.TextBox();
+            this.textBoxPosY = new System.Windows.Forms.TextBox();
+            this.textBoxPosZ = new System.Windows.Forms.TextBox();
+            this.textBoxRotX = new System.Windows.Forms.TextBox();
+            this.textBoxRotY = new System.Windows.Forms.TextBox();
+            this.textBoxRotZ = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panelConectionStatus.SuspendLayout();
+            this.panelRobotPosition.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(70, 452);
+            this.button1.Location = new System.Drawing.Point(146, 525);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(215, 63);
@@ -91,7 +107,7 @@ namespace URProject {
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(112, 523);
+            this.button2.Location = new System.Drawing.Point(15, 525);
             this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(127, 65);
@@ -105,6 +121,7 @@ namespace URProject {
             this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.panelMenu.Controls.Add(this.buttonLogging);
             this.panelMenu.Controls.Add(this.labelPort);
             this.panelMenu.Controls.Add(this.buttonManualMove);
             this.panelMenu.Controls.Add(this.buttonConnect);
@@ -119,6 +136,35 @@ namespace URProject {
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(347, 609);
             this.panelMenu.TabIndex = 4;
+            // 
+            // buttonLogging
+            // 
+            this.buttonLogging.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.buttonLogging.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.buttonLogging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonLogging.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonLogging.ForeColor = System.Drawing.Color.White;
+            this.buttonLogging.Location = new System.Drawing.Point(15, 434);
+            this.buttonLogging.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonLogging.Name = "buttonLogging";
+            this.buttonLogging.Size = new System.Drawing.Size(329, 64);
+            this.buttonLogging.TabIndex = 9;
+            this.buttonLogging.TabStop = false;
+            this.buttonLogging.Text = "Logging";
+            this.buttonLogging.UseVisualStyleBackColor = false;
+            this.buttonLogging.Visible = false;
+            this.buttonLogging.Click += new System.EventHandler(this.buttonLogging_Click);
+            // 
+            // labelPort
+            // 
+            this.labelPort.AutoSize = true;
+            this.labelPort.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.labelPort.ForeColor = System.Drawing.Color.White;
+            this.labelPort.Location = new System.Drawing.Point(199, 115);
+            this.labelPort.Name = "labelPort";
+            this.labelPort.Size = new System.Drawing.Size(63, 28);
+            this.labelPort.TabIndex = 8;
+            this.labelPort.Text = "PORT:";
             // 
             // buttonManualMove
             // 
@@ -238,21 +284,172 @@ namespace URProject {
             this.panelRobotPosition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRobotPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.panelRobotPosition.Controls.Add(this.label9);
+            this.panelRobotPosition.Controls.Add(this.label6);
+            this.panelRobotPosition.Controls.Add(this.label7);
+            this.panelRobotPosition.Controls.Add(this.label8);
+            this.panelRobotPosition.Controls.Add(this.label5);
+            this.panelRobotPosition.Controls.Add(this.label4);
+            this.panelRobotPosition.Controls.Add(this.label3);
+            this.panelRobotPosition.Controls.Add(this.label2);
+            this.panelRobotPosition.Controls.Add(this.textBoxRotZ);
+            this.panelRobotPosition.Controls.Add(this.textBoxRotY);
+            this.panelRobotPosition.Controls.Add(this.textBoxRotX);
+            this.panelRobotPosition.Controls.Add(this.textBoxPosZ);
+            this.panelRobotPosition.Controls.Add(this.textBoxPosY);
+            this.panelRobotPosition.Controls.Add(this.textBoxPosX);
             this.panelRobotPosition.Location = new System.Drawing.Point(331, -7);
             this.panelRobotPosition.Name = "panelRobotPosition";
             this.panelRobotPosition.Size = new System.Drawing.Size(815, 93);
             this.panelRobotPosition.TabIndex = 5;
             // 
-            // labelPort
+            // textBoxPosX
             // 
-            this.labelPort.AutoSize = true;
-            this.labelPort.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.labelPort.ForeColor = System.Drawing.Color.White;
-            this.labelPort.Location = new System.Drawing.Point(199, 115);
-            this.labelPort.Name = "labelPort";
-            this.labelPort.Size = new System.Drawing.Size(63, 28);
-            this.labelPort.TabIndex = 8;
-            this.labelPort.Text = "PORT:";
+            this.textBoxPosX.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxPosX.Location = new System.Drawing.Point(40, 43);
+            this.textBoxPosX.Name = "textBoxPosX";
+            this.textBoxPosX.ReadOnly = true;
+            this.textBoxPosX.Size = new System.Drawing.Size(62, 34);
+            this.textBoxPosX.TabIndex = 0;
+            this.textBoxPosX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPosY
+            // 
+            this.textBoxPosY.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxPosY.Location = new System.Drawing.Point(144, 43);
+            this.textBoxPosY.Name = "textBoxPosY";
+            this.textBoxPosY.ReadOnly = true;
+            this.textBoxPosY.Size = new System.Drawing.Size(62, 34);
+            this.textBoxPosY.TabIndex = 1;
+            this.textBoxPosY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPosZ
+            // 
+            this.textBoxPosZ.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxPosZ.Location = new System.Drawing.Point(251, 44);
+            this.textBoxPosZ.Name = "textBoxPosZ";
+            this.textBoxPosZ.ReadOnly = true;
+            this.textBoxPosZ.Size = new System.Drawing.Size(62, 34);
+            this.textBoxPosZ.TabIndex = 2;
+            this.textBoxPosZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxRotX
+            // 
+            this.textBoxRotX.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxRotX.Location = new System.Drawing.Point(416, 44);
+            this.textBoxRotX.Name = "textBoxRotX";
+            this.textBoxRotX.ReadOnly = true;
+            this.textBoxRotX.Size = new System.Drawing.Size(62, 34);
+            this.textBoxRotX.TabIndex = 3;
+            this.textBoxRotX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxRotY
+            // 
+            this.textBoxRotY.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxRotY.Location = new System.Drawing.Point(519, 44);
+            this.textBoxRotY.Name = "textBoxRotY";
+            this.textBoxRotY.ReadOnly = true;
+            this.textBoxRotY.Size = new System.Drawing.Size(62, 34);
+            this.textBoxRotY.TabIndex = 4;
+            this.textBoxRotY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxRotZ
+            // 
+            this.textBoxRotZ.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxRotZ.Location = new System.Drawing.Point(625, 43);
+            this.textBoxRotZ.Name = "textBoxRotZ";
+            this.textBoxRotZ.ReadOnly = true;
+            this.textBoxRotZ.Size = new System.Drawing.Size(62, 34);
+            this.textBoxRotZ.TabIndex = 5;
+            this.textBoxRotZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(102, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 32);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Tool Position";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(6, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 32);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "X";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(110, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(27, 32);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Y";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(217, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 32);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Z";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(593, 44);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(28, 32);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Z";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(486, 44);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(27, 32);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Y";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.Location = new System.Drawing.Point(382, 44);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(28, 32);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "X";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(474, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(155, 32);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Tool Rotation";
             // 
             // FormMain
             // 
@@ -272,6 +469,8 @@ namespace URProject {
             this.panelMenu.PerformLayout();
             this.panelConectionStatus.ResumeLayout(false);
             this.panelConectionStatus.PerformLayout();
+            this.panelRobotPosition.ResumeLayout(false);
+            this.panelRobotPosition.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -295,6 +494,21 @@ namespace URProject {
         public System.Windows.Forms.Label labelIP;
         public System.Windows.Forms.Label labelConectionStatus;
         public System.Windows.Forms.Panel panelConectionLed;
+        public System.Windows.Forms.Button buttonLogging;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.TextBox textBoxRotZ;
+        public System.Windows.Forms.TextBox textBoxRotY;
+        public System.Windows.Forms.TextBox textBoxRotX;
+        public System.Windows.Forms.TextBox textBoxPosZ;
+        public System.Windows.Forms.TextBox textBoxPosY;
+        public System.Windows.Forms.TextBox textBoxPosX;
     }
 }
 

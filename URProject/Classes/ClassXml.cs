@@ -115,7 +115,7 @@ namespace URProject.Classes {
                 ClassData.robotPort = int.Parse(nodeRobot.Attributes["Port"].Value.ToString());
 
                 XmlNode nodeDebug = document.SelectSingleNode("//Config/Debug");
-                ClassData.debugMode = nodeDebug.Attributes["Enable"].Value == "true";
+                ClassData.debugMode = nodeDebug.Attributes["Enable"].Value == "True";
 
                 XmlNode nodeLogging = document.SelectSingleNode("//Config/Logging");
                 ClassData.logLevel = int.Parse(nodeLogging.Attributes["Level"].Value.ToString());

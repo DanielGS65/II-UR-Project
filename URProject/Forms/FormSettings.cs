@@ -92,6 +92,8 @@ namespace URProject.Forms {
 
             mainForm.labelIP.Text = "IP: " + ClassData.robotIp;
             mainForm.labelPort.Text = "Port: " + ClassData.robotPort.ToString();
+            mainForm.buttonLogging.Visible = ClassData.debugMode;
+            mainForm.hideSecondaryForms();
 
             this.Hide();
         }

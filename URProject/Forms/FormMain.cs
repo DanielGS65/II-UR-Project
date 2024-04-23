@@ -22,11 +22,14 @@ namespace URProject {
         // ---------------------------
         #region LocalVariables
 
-        ClassXml xmlClass;
-        ClassRTDE rtdeClass;
+        private ClassXml xmlClass;
+        private ClassRTDE rtdeClass;
 
-        FormManualMove manualMoveForm;
-        FormSettings settingsForm;
+        private FormManualMove manualMoveForm;
+        private FormSettings settingsForm;
+
+        public static RichTextBox richTextBoxLogger;
+        //FormLogging loggingForm;
 
         IPAddress ipAddress;
         IPEndPoint ipEndPoint;
@@ -41,6 +44,8 @@ namespace URProject {
 
         public FormMain() {
             InitializeComponent();
+
+            CreateLogger();
             Logging.CreateLogFile();
             Logging.LogInformation(1,"Logging Started");
 
@@ -65,11 +70,14 @@ namespace URProject {
             this.labelIP.Text = "IP: " + ClassData.robotIp;
             this.labelPort.Text = "Port: " + ClassData.robotPort.ToString();
 
+            if (ClassData.debugMode) {
+                buttonLogging.Visible = true;
+            }
+
             if(ClassData.robotIp == "" || ClassData.robotPort.ToString() == "0") {
                 settingsForm.updateConfig();
                 settingsForm.Show();
             }
-
 
             //Check UR Connections
             /*Ping pinger = new Ping();
@@ -90,6 +98,26 @@ namespace URProject {
             Logging.LogInformation(1, "FormMain - Initialization Completed");
         }
 
+        public void CreateLogger() {
+            richTextBoxLogger = new RichTextBox();
+            richTextBoxLogger.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            richTextBoxLogger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(220)))), ((int)(((byte)(210)))));
+            richTextBoxLogger.Font = new System.Drawing.Font("Segoe UI", 12F);
+            richTextBoxLogger.ForeColor = System.Drawing.SystemColors.WindowText;
+            richTextBoxLogger.Location = new System.Drawing.Point(-2, -2);
+            richTextBoxLogger.Name = "richTextBoxLogger";
+            richTextBoxLogger.Size = panelMainContainer.Size;
+            richTextBoxLogger.TabIndex = 0;
+            richTextBoxLogger.Text = "";
+            richTextBoxLogger.Visible = false;
+            richTextBoxLogger.TabStop = false;
+            richTextBoxLogger.ReadOnly = true;
+
+            panelMainContainer.Controls.Add(richTextBoxLogger);
+        }
+
         #endregion InitFunctions
 
         // ---------------------------
@@ -99,9 +127,14 @@ namespace URProject {
 
         private void button1_Click(object sender, EventArgs e) {
 
-            var message = "movej(p[0.2, -0.2, 0.5, 0, 2, -2], a = 1, v = 0.25, r =0, t =10)" + "\n";
-            var messageBytes = Encoding.UTF8.GetBytes(message);
-            client.Send(messageBytes);
+            try {
+                var message = "movej(p[0.2, -0.2, 0.5, 0, 2, -2], a = 1, v = 0.25, r =0, t =10)" + "\n";
+                var messageBytes = Encoding.UTF8.GetBytes(message);
+                client.Send(messageBytes);
+            }catch(Exception err) {
+                Logging.LogInformation(3, "FormMain button1_Click - " + err.Message);
+            }
+            
         }
 
         private void buttonDebugMarcos(object sender, EventArgs e) {
@@ -112,7 +145,13 @@ namespace URProject {
 
         }
 
+        private void buttonLogging_Click(object sender, EventArgs e) {
+            hideSecondaryForms();
+            richTextBoxLogger.Visible = true;
+        }
+
         private void buttonManualMove_Click(object sender, EventArgs e) {
+            hideSecondaryForms();
             manualMoveForm.Show();
         }
 
@@ -183,9 +222,10 @@ namespace URProject {
 
         public void hideSecondaryForms() {
             manualMoveForm.Hide();
+            richTextBoxLogger.Visible = false;
         }
 
-        #endregion VisualFunctions
 
+        #endregion VisualFunctions
     }
 }

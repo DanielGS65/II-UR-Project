@@ -1,7 +1,11 @@
 ﻿using System;
+using System.Drawing;
 using System.Globalization;
 using System.IO;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Windows.Forms;
+using URProject.Forms;
 
 namespace URProject {
     public static class Logging {
@@ -70,6 +74,30 @@ namespace URProject {
                     file.Close();
                     logFileBussy = false;
                 }
+
+                int selectionStart = FormMain.richTextBoxLogger.TextLength;
+                FormMain.richTextBoxLogger.AppendText(text + "\n");
+                int selectionEnd = FormMain.richTextBoxLogger.TextLength;
+                FormMain.richTextBoxLogger.Select(selectionStart, selectionEnd);
+
+                switch (level) {
+                    case 0:
+                        FormMain.richTextBoxLogger.SelectionColor = Color.Gray; 
+                        break;
+                    case 1:
+                        FormMain.richTextBoxLogger.SelectionColor = Color.Black;
+                        break;
+                    case 2:
+                        FormMain.richTextBoxLogger.SelectionColor = Color.Orange;
+                        break;
+                    case 3:
+                        FormMain.richTextBoxLogger.SelectionColor = Color.Red;
+                        break;
+                    case 4:
+                        FormMain.richTextBoxLogger.SelectionColor = Color.DarkCyan;
+                        break;
+                }
+                
             }
         }
 
