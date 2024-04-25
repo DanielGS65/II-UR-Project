@@ -27,6 +27,7 @@ namespace URProject {
 
         private FormManualMove manualMoveForm;
         private FormSettings settingsForm;
+        private Form_dioni dioniForm;
 
         public static RichTextBox richTextBoxLogger;
         //FormLogging loggingForm;
@@ -59,6 +60,7 @@ namespace URProject {
             rtdeClass = new ClassRTDE(this);
 
             //Forms Init
+            dioniForm = new Form_dioni();
             manualMoveForm = new FormManualMove();
             manualMoveForm.TopLevel = false;
             this.panelMainContainer.Controls.Add(manualMoveForm);
@@ -125,6 +127,24 @@ namespace URProject {
         // ---------------------------
         #region FormFunctions
 
+        private void buttonConnect_Click(object sender, EventArgs e) {
+            if (ClassData.client == null) {
+                if (rtdeClass.checkRobotConnection()) {
+                    Logging.LogInformation(1, "FormMain buttonConnect_Click - Robot Detected, starting Connection");
+                    rtdeClass.connectSocket();
+                    ChangeConnectionStatus(true);
+                } else {
+                    Logging.LogInformation(1, "FormMain buttonConnect_Click - Robot Not Detected");
+                    raiseMessageBox("WARNNING: Robot not connected", "Cannot connect to robot. Check if the Robot is online");
+                    ChangeConnectionStatus(false);
+                }
+            } else {
+                Logging.LogInformation(1, "FormMain buttonConnect_Click - Disconnecting");
+                ClassData.client = null;
+                ChangeConnectionStatus(false);
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e) {
 
             try {
@@ -142,7 +162,7 @@ namespace URProject {
         }
 
         private void button2_Click(object sender, EventArgs e) {
-
+            dioniForm.Show();
         }
 
         private void buttonLogging_Click(object sender, EventArgs e) {
@@ -220,6 +240,18 @@ namespace URProject {
         // ---------------------------
         #region VisualFunctions
 
+        public void ChangeConnectionStatus(bool connected) {
+            if (connected) {
+                panelConectionLed.BackColor = Color.LightGreen;
+                labelConectionStatus.Text = "Connected";
+                buttonConnect.Text = "Disconnect";
+            } else {
+                panelConectionLed.BackColor = Color.Red;
+                labelConectionStatus.Text = "Disconnected";
+                buttonConnect.Text = "Connect to UR";
+            }
+        }
+
         public void hideSecondaryForms() {
             manualMoveForm.Hide();
             richTextBoxLogger.Visible = false;
@@ -227,5 +259,6 @@ namespace URProject {
 
 
         #endregion VisualFunctions
+
     }
 }

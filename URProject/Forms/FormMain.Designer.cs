@@ -45,20 +45,20 @@ namespace URProject {
             this.labelTitle = new System.Windows.Forms.Label();
             this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.panelRobotPosition = new System.Windows.Forms.Panel();
-            this.textBoxPosX = new System.Windows.Forms.TextBox();
-            this.textBoxPosY = new System.Windows.Forms.TextBox();
-            this.textBoxPosZ = new System.Windows.Forms.TextBox();
-            this.textBoxRotX = new System.Windows.Forms.TextBox();
-            this.textBoxRotY = new System.Windows.Forms.TextBox();
-            this.textBoxRotZ = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxRotZ = new System.Windows.Forms.TextBox();
+            this.textBoxRotY = new System.Windows.Forms.TextBox();
+            this.textBoxRotX = new System.Windows.Forms.TextBox();
+            this.textBoxPosZ = new System.Windows.Forms.TextBox();
+            this.textBoxPosY = new System.Windows.Forms.TextBox();
+            this.textBoxPosX = new System.Windows.Forms.TextBox();
             this.panelMenu.SuspendLayout();
             this.panelConectionStatus.SuspendLayout();
             this.panelRobotPosition.SuspendLayout();
@@ -104,7 +104,7 @@ namespace URProject {
             this.buttonMarcos.UseVisualStyleBackColor = false;
             this.buttonMarcos.Click += new System.EventHandler(this.buttonDebugMarcos);
             // 
-            // boton_dioni
+            // button2
             // 
             this.button2.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(15, 525);
@@ -197,6 +197,7 @@ namespace URProject {
             this.buttonConnect.TabStop = false;
             this.buttonConnect.Text = "Connect to UR";
             this.buttonConnect.UseVisualStyleBackColor = false;
+            this.buttonConnect.Click += new System.EventHandler(this.buttonConnect_Click);
             // 
             // panelConectionStatus
             // 
@@ -303,109 +304,16 @@ namespace URProject {
             this.panelRobotPosition.Size = new System.Drawing.Size(815, 93);
             this.panelRobotPosition.TabIndex = 5;
             // 
-            // textBoxPosX
+            // label9
             // 
-            this.textBoxPosX.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBoxPosX.Location = new System.Drawing.Point(40, 43);
-            this.textBoxPosX.Name = "textBoxPosX";
-            this.textBoxPosX.ReadOnly = true;
-            this.textBoxPosX.Size = new System.Drawing.Size(62, 34);
-            this.textBoxPosX.TabIndex = 0;
-            this.textBoxPosX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxPosY
-            // 
-            this.textBoxPosY.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBoxPosY.Location = new System.Drawing.Point(144, 43);
-            this.textBoxPosY.Name = "textBoxPosY";
-            this.textBoxPosY.ReadOnly = true;
-            this.textBoxPosY.Size = new System.Drawing.Size(62, 34);
-            this.textBoxPosY.TabIndex = 1;
-            this.textBoxPosY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxPosZ
-            // 
-            this.textBoxPosZ.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBoxPosZ.Location = new System.Drawing.Point(251, 44);
-            this.textBoxPosZ.Name = "textBoxPosZ";
-            this.textBoxPosZ.ReadOnly = true;
-            this.textBoxPosZ.Size = new System.Drawing.Size(62, 34);
-            this.textBoxPosZ.TabIndex = 2;
-            this.textBoxPosZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxRotX
-            // 
-            this.textBoxRotX.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBoxRotX.Location = new System.Drawing.Point(416, 44);
-            this.textBoxRotX.Name = "textBoxRotX";
-            this.textBoxRotX.ReadOnly = true;
-            this.textBoxRotX.Size = new System.Drawing.Size(62, 34);
-            this.textBoxRotX.TabIndex = 3;
-            this.textBoxRotX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxRotY
-            // 
-            this.textBoxRotY.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBoxRotY.Location = new System.Drawing.Point(519, 44);
-            this.textBoxRotY.Name = "textBoxRotY";
-            this.textBoxRotY.ReadOnly = true;
-            this.textBoxRotY.Size = new System.Drawing.Size(62, 34);
-            this.textBoxRotY.TabIndex = 4;
-            this.textBoxRotY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBoxRotZ
-            // 
-            this.textBoxRotZ.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBoxRotZ.Location = new System.Drawing.Point(625, 43);
-            this.textBoxRotZ.Name = "textBoxRotZ";
-            this.textBoxRotZ.ReadOnly = true;
-            this.textBoxRotZ.Size = new System.Drawing.Size(62, 34);
-            this.textBoxRotZ.TabIndex = 5;
-            this.textBoxRotZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(102, 8);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 32);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Tool Position";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(6, 43);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(28, 32);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "X";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(110, 43);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(27, 32);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Y";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(217, 43);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(28, 32);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Z";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(474, 9);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(155, 32);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Tool Rotation";
             // 
             // label6
             // 
@@ -440,16 +348,109 @@ namespace URProject {
             this.label8.TabIndex = 10;
             this.label8.Text = "X";
             // 
-            // label9
+            // label5
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(474, 9);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(155, 32);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Tool Rotation";
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(217, 43);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(28, 32);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Z";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(110, 43);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(27, 32);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Y";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(6, 43);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(28, 32);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "X";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(102, 8);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(150, 32);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Tool Position";
+            // 
+            // textBoxRotZ
+            // 
+            this.textBoxRotZ.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxRotZ.Location = new System.Drawing.Point(625, 43);
+            this.textBoxRotZ.Name = "textBoxRotZ";
+            this.textBoxRotZ.ReadOnly = true;
+            this.textBoxRotZ.Size = new System.Drawing.Size(62, 34);
+            this.textBoxRotZ.TabIndex = 5;
+            this.textBoxRotZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxRotY
+            // 
+            this.textBoxRotY.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxRotY.Location = new System.Drawing.Point(519, 44);
+            this.textBoxRotY.Name = "textBoxRotY";
+            this.textBoxRotY.ReadOnly = true;
+            this.textBoxRotY.Size = new System.Drawing.Size(62, 34);
+            this.textBoxRotY.TabIndex = 4;
+            this.textBoxRotY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxRotX
+            // 
+            this.textBoxRotX.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxRotX.Location = new System.Drawing.Point(416, 44);
+            this.textBoxRotX.Name = "textBoxRotX";
+            this.textBoxRotX.ReadOnly = true;
+            this.textBoxRotX.Size = new System.Drawing.Size(62, 34);
+            this.textBoxRotX.TabIndex = 3;
+            this.textBoxRotX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPosZ
+            // 
+            this.textBoxPosZ.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxPosZ.Location = new System.Drawing.Point(251, 44);
+            this.textBoxPosZ.Name = "textBoxPosZ";
+            this.textBoxPosZ.ReadOnly = true;
+            this.textBoxPosZ.Size = new System.Drawing.Size(62, 34);
+            this.textBoxPosZ.TabIndex = 2;
+            this.textBoxPosZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPosY
+            // 
+            this.textBoxPosY.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxPosY.Location = new System.Drawing.Point(144, 43);
+            this.textBoxPosY.Name = "textBoxPosY";
+            this.textBoxPosY.ReadOnly = true;
+            this.textBoxPosY.Size = new System.Drawing.Size(62, 34);
+            this.textBoxPosY.TabIndex = 1;
+            this.textBoxPosY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBoxPosX
+            // 
+            this.textBoxPosX.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxPosX.Location = new System.Drawing.Point(40, 43);
+            this.textBoxPosX.Name = "textBoxPosX";
+            this.textBoxPosX.ReadOnly = true;
+            this.textBoxPosX.Size = new System.Drawing.Size(62, 34);
+            this.textBoxPosX.TabIndex = 0;
+            this.textBoxPosX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FormMain
             // 

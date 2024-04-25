@@ -54,7 +54,7 @@ namespace URProject {
         /// <param name="level">Level of display<br/>1 Debug - 2 Info - 3 Warning - 4 Error</param>
         /// <param name="message">Message to display</param>
         public static void LogInformation(int level, string message) {
-            if (level >= logLevel) {
+            if (level >= ClassData.logLevel) {
 
                 string levelText = "System";
                 switch (level) {
