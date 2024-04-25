@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using URProject.Classes;
 
 namespace URProject.Forms
 {
     public partial class FormGuardarPose : Form
     {
+        ClassRTDE classRTDE;
         public FormGuardarPose()
         {
             InitializeComponent();
@@ -24,7 +26,7 @@ namespace URProject.Forms
             flag = formConfirmacionLlamada(sender, e);
 
             if (flag) {
-                // Guardar los datos de la pos del robot
+                classRTDE.getRobotPos();
             }
         }
 
@@ -34,7 +36,7 @@ namespace URProject.Forms
 
             if (flag)
             {
-                // Guardar los datos de la pos del robot
+                classRTDE.getRobotPos();
             }
         }
 
@@ -44,7 +46,7 @@ namespace URProject.Forms
 
             if (flag)
             {
-                // Guardar los datos de la pos del robot
+                classRTDE.getRobotPos();
             }
         }
 
@@ -54,17 +56,29 @@ namespace URProject.Forms
 
             if (flag)
             {
-                // Guardar los datos de la pos del robot
+                classRTDE.getRobotPos();
             }
         }
 
         private bool formConfirmacionLlamada(object sender, EventArgs e)
         {
-            FormConfirmacion fc = new FormConfirmacion();
-            fc.ShowDialog();
+            DialogResult resultado = MessageBox.Show("¿Estás seguro de que deseas continuar?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-            return fc.boolPlaceHolder;
-            
+            bool res;
+                        
+            if (resultado == DialogResult.Yes)
+            {
+                MessageBox.Show("Acción confirmada.");
+                res = true;
+            }
+            else
+            {
+                MessageBox.Show("Acción cancelada.");
+                res = false;
+            }
+
+            return res;
+
         }
     }
 }
