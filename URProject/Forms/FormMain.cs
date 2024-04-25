@@ -28,7 +28,7 @@ namespace URProject {
         private FormManualMove manualMoveForm;
         private FormSettings settingsForm;
         private Form_dioni dioniForm;
-
+        private FormMostrarPuntos formMostrarPuntos;
         public static RichTextBox richTextBoxLogger;
         //FormLogging loggingForm;
 
@@ -67,6 +67,8 @@ namespace URProject {
 
             settingsForm = new FormSettings(this,xmlClass);
 
+            formMostrarPuntos = new FormMostrarPuntos(xmlClass);
+            formMostrarPuntos.Show();
             //Start Secuence
             xmlClass.readConfig();
             this.labelIP.Text = "IP: " + ClassData.robotIp;
@@ -80,6 +82,7 @@ namespace URProject {
                 settingsForm.updateConfig();
                 settingsForm.Show();
             }
+
 
             //Check UR Connections
             /*Ping pinger = new Ping();

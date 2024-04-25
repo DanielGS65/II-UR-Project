@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -103,6 +104,27 @@ namespace URProject.Classes {
         // Read Functions
         // ---------------------------
         #region ReadFunctions
+
+        public XmlReader readTrajectory()
+        {
+            XmlDocument document = new XmlDocument();
+
+            try
+            {
+                //TODO: Change variable to the trajectory path
+                document.Load(ClassData.posePath);
+
+                XmlReader data = new XmlNodeReader(document);
+                return data;
+
+            }
+            catch (Exception err)
+            {
+                Logging.LogInformation(2, "ClassXml readTrajectory - " + err.Message);
+                return null;
+            }
+        }
+
 
         public void readConfig() {
             XmlDocument document = new XmlDocument();

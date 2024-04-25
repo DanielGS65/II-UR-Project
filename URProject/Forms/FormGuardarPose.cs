@@ -60,10 +60,11 @@ namespace URProject.Forms
 
         private bool formConfirmacionLlamada(object sender, EventArgs e)
         {
-            FormConfirmacion fc = new FormConfirmacion();
-            fc.ShowDialog();
+            //FormConfirmacion fc = new FormConfirmacion();
+            //fc.ShowDialog();
 
-            return fc.boolPlaceHolder;
+            //return fc.boolPlaceHolder;
+            return false;   
             
         }
     }
