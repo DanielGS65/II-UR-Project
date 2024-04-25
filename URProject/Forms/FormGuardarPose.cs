@@ -21,7 +21,6 @@ namespace URProject.Forms
         public FormGuardarPose()
         {
             InitializeComponent();
-
             classXml = new ClassXml(this);
             rtdeClass = new ClassRTDE(this);
 
