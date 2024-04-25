@@ -49,6 +49,12 @@
     <Compile Include="Classes\ClassData.cs" />
     <Compile Include="Classes\ClassLogging.cs" />
     <Compile Include="Classes\ClassRTDE.cs" />
+    <Compile Include="Forms\FormGuardarPose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormGuardarPose.Designer.cs">
+      <DependentUpon>FormGuardarPose.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\FormInfoSistema.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,6 +81,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormGuardarPose.resx">
+      <DependentUpon>FormGuardarPose.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormInfoSistema.resx">
       <DependentUpon>FormInfoSistema.cs</DependentUpon>
     </EmbeddedResource>
