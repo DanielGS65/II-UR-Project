@@ -12,6 +12,7 @@ namespace URProject.Forms {
     public partial class FormManualMove : Form {
         public FormManualMove() {
             InitializeComponent();
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
     }
 }
