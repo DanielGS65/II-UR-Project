@@ -27,6 +27,7 @@ namespace URProject {
         FormManualMove manualMoveForm;
         FormInfoSistema formInfoSistema;
         Form_dioni form_dioni;
+        FormArticulas form_articulas;
 
         IPAddress ipAddress;
         IPEndPoint ipEndPoint;
@@ -47,9 +48,11 @@ namespace URProject {
             manualMoveForm = new FormManualMove();
             formInfoSistema = new FormInfoSistema();
             form_dioni = new Form_dioni();
+            form_articulas = new FormArticulas();
             //manualMoveForm.TopLevel = false;
             //this.panelManualMove.Controls.Add(manualMoveForm);
-            manualMoveForm.Show();
+            //manualMoveForm.Show();
+            form_articulas.Show();
 
             
 
