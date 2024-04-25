@@ -13,72 +13,45 @@ namespace URProject.Forms
 {
     public partial class FormGuardarPose : Form
     {
-        ClassRTDE classRTDE;
+        private ClassXml classXml;
+        private ClassRTDE rtdeClass;
+
+       
+
         public FormGuardarPose()
         {
             InitializeComponent();
-        }
 
-        private bool flag;
+            classXml = new ClassXml(this);
+            rtdeClass = new ClassRTDE(this);
 
-        private void buttonGuardarExtra_Click(object sender, EventArgs e)
-        {
-            flag = formConfirmacionLlamada(sender, e);
-
-            if (flag) {
-                classRTDE.getRobotPos();
-            }
-        }
-
-        private void buttonGuardarEstirar_Click(object sender, EventArgs e)
-        {
-            flag = formConfirmacionLlamada(sender, e);
-
-            if (flag)
-            {
-                classRTDE.getRobotPos();
-            }
-        }
-
-        private void buttonGuardarRecoger_Click(object sender, EventArgs e)
-        {
-            flag = formConfirmacionLlamada(sender, e);
-
-            if (flag)
-            {
-                classRTDE.getRobotPos();
-            }
+            
         }
 
         private void buttonGuardarHome_Click(object sender, EventArgs e)
         {
-            flag = formConfirmacionLlamada(sender, e);
 
-            if (flag)
+           if( textBox1.TextLength > 0)
             {
-                classRTDE.getRobotPos();
-            }
-        }
+                DialogResult resultado = MessageBox.Show("¿Are you sure?", "Accept", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-        private bool formConfirmacionLlamada(object sender, EventArgs e)
-        {
-            DialogResult resultado = MessageBox.Show("¿Estás seguro de que deseas continuar?", "Confirmar", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    MessageBox.Show("Added pose");
+                    //classRTDE.getRobotPos();
+                    classXml.addPose(textBox1.Text, 25, 30, 20, 10, 25, 22);
+                }
+                else
+                {
+                    MessageBox.Show("Declined");
+                }
 
-            bool res;
-                        
-            if (resultado == DialogResult.Yes)
-            {
-                MessageBox.Show("Acción confirmada.");
-                res = true;
             }
             else
             {
-                MessageBox.Show("Acción cancelada.");
-                res = false;
+                MessageBox.Show("Please enter pose name");
             }
-
-            return res;
-
+           
         }
     }
 }

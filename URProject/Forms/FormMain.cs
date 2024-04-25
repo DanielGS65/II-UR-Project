@@ -28,6 +28,7 @@ namespace URProject {
         private FormManualMove manualMoveForm;
         private FormSettings settingsForm;
         private Form_dioni dioniForm;
+        private FormGuardarPose formGuardarPose;
 
         public static RichTextBox richTextBoxLogger;
         //FormLogging loggingForm;
@@ -61,6 +62,7 @@ namespace URProject {
 
             //Forms Init
             dioniForm = new Form_dioni();
+            formGuardarPose = new FormGuardarPose();
             manualMoveForm = new FormManualMove();
             manualMoveForm.TopLevel = false;
             this.panelMainContainer.Controls.Add(manualMoveForm);
@@ -174,6 +176,12 @@ namespace URProject {
             hideSecondaryForms();
             manualMoveForm.Show();
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            hideSecondaryForms();
+            formGuardarPose.Show();
+
+        }
 
         #endregion FormFunctions
 
@@ -260,5 +268,6 @@ namespace URProject {
 
         #endregion VisualFunctions
 
+        
     }
 }

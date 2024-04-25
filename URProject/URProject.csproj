@@ -52,6 +52,7 @@
     <Compile Include="Classes\ClassData.cs" />
     <Compile Include="Classes\ClassLogging.cs" />
     <Compile Include="Classes\ClassRTDE.cs" />
+    <Compile Include="Classes\ClassXml.cs" />
     <Compile Include="Forms\FormGuardarPose.cs">
       <SubType>Form</SubType>
     </Compile>
