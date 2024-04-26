@@ -55,7 +55,7 @@ namespace URProject {
 
             //Forms Init
             dioniForm = new Form_dioni();
-            manualMoveForm = new FormManualMove();
+            manualMoveForm = new FormManualMove(rtdeClass);
             manualMoveForm.TopLevel = false;
             this.panelMainContainer.Controls.Add(manualMoveForm);
 
@@ -107,6 +107,8 @@ namespace URProject {
         // ---------------------------
         #region FormFunctions
 
+        #region FormFunctions
+
         private void buttonConnect_Click(object sender, EventArgs e) {
             if (ClassData.client == null || ClassData.clientControl == null) {
                 if (rtdeClass.checkRobotConnection()) {
@@ -150,6 +152,8 @@ namespace URProject {
             hideSecondaryForms();
             manualMoveForm.Show();
         }
+
+        #endregion FormFunctions
 
         #endregion FormFunctions
 
@@ -235,6 +239,5 @@ namespace URProject {
 
 
         #endregion VisualFunctions
-
     }
 }

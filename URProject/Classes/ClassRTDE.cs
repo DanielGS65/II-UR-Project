@@ -20,6 +20,11 @@ namespace URProject.Classes {
             Logging.LogInformation(1, "ClassRTDE - Initialization Completed");
         }
 
+        public ClassRTDE()
+        {
+            Logging.LogInformation(1, "ClassRTDE - Initialization Completed");
+        }
+
         public bool checkRobotConnection()
         {
             Logging.LogInformation(1, "ClassRTDE checkRobotConnection - Checking robot connection...");
@@ -53,6 +58,12 @@ namespace URProject.Classes {
             int byteRecv = ClassData.client.Receive(messageReceived);
 
             Logging.LogInformation(0, "ClassRTDE getRobotPos - Message Recieved: " + Encoding.UTF8.GetString(messageReceived, 0, byteRecv));
+        }
+
+        public void SendJointPose(double j1,double j2, double j3, double j4, double j5, double j6)
+        {
+            var message = "movej(p[" + j1 + "," + j2 + "," + j3 + "," + j4 + "," + j5 + "," + j6 + "]" +
+                ", a = 1, v = 0.25, r =0, t =10)" + "\n";
         }
     }
 }
