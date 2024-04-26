@@ -32,6 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -49,23 +52,30 @@
     <Compile Include="Classes\ClassData.cs" />
     <Compile Include="Classes\ClassLogging.cs" />
     <Compile Include="Classes\ClassRTDE.cs" />
-    <Compile Include="Forms\Confirmacion.cs">
+    <Compile Include="Classes\ClassXml.cs" />
+    <Compile Include="Forms\ControlArticular.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Confirmacion.Designer.cs">
-      <DependentUpon>Confirmacion.cs</DependentUpon>
+    <Compile Include="Forms\ControlArticular.Designer.cs">
+      <DependentUpon>ControlArticular.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\FormArticulas.cs">
+    <Compile Include="Forms\FormGuardarPose.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\FormArticulas.Designer.cs">
-      <DependentUpon>FormArticulas.cs</DependentUpon>
+    <Compile Include="Forms\FormGuardarPose.Designer.cs">
+      <DependentUpon>FormGuardarPose.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormInfoSistema.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\FormInfoSistema.Designer.cs">
       <DependentUpon>FormInfoSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLogging.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLogging.Designer.cs">
+      <DependentUpon>FormLogging.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormMain.cs">
       <SubType>Form</SubType>
@@ -79,6 +89,12 @@
     <Compile Include="Forms\FormManualMove.Designer.cs">
       <DependentUpon>FormManualMove.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\FormSettings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormSettings.Designer.cs">
+      <DependentUpon>FormSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Form_dioni.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -87,20 +103,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\Confirmacion.resx">
-      <DependentUpon>Confirmacion.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ControlArticular.resx">
+      <DependentUpon>ControlArticular.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormArticulas.resx">
-      <DependentUpon>FormArticulas.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\FormGuardarPose.resx">
+      <DependentUpon>FormGuardarPose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormInfoSistema.resx">
       <DependentUpon>FormInfoSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLogging.resx">
+      <DependentUpon>FormLogging.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormMain.resx">
       <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormManualMove.resx">
       <DependentUpon>FormManualMove.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormSettings.resx">
+      <DependentUpon>FormSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Form_dioni.resx">
       <DependentUpon>Form_dioni.cs</DependentUpon>
@@ -126,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Logo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
