@@ -42,6 +42,12 @@ namespace URProject.Classes
             Logging.LogInformation(1, "ClassRTDE - Initialization Completed");
         }
 
+        public ClassRTDE(FormGuardarPose formGuardarPose)
+        {
+            this.formGuardarPose = formGuardarPose;
+            Logging.LogInformation(1, "ClassRTDE (FormGuardarPose) - Initialization Completed ");
+        }
+
         public bool checkRobotConnection()
         {
             Logging.LogInformation(1, "ClassRTDE checkRobotConnection - Checking robot connection...");
