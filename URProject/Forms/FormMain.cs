@@ -62,10 +62,9 @@ namespace URProject {
             //Forms Init
             dioniForm = new Form_dioni();
             dashboardServerForm = new FormDashboardServer();
-            manualMoveForm = new FormManualMove(rtdeClass,controlClass);
+            manualMoveForm = new FormManualMove(controlClass);
             formGuardarPose = new FormGuardarPose();
             formInfoSistema = new FormInfoSistema(rtdeClass);
-            manualMoveForm = new FormManualMove();
             manualMoveForm.TopLevel = false;
             this.panelMainContainer.Controls.Add(manualMoveForm);
 

@@ -42,12 +42,6 @@ namespace URProject.Classes
             Logging.LogInformation(1, "ClassRTDE - Initialization Completed");
         }
 
-        public ClassRTDE(FormGuardarPose formGuardarPose)
-        {
-            this.formGuardarPose = formGuardarPose;
-            Logging.LogInformation(1, "ClassRTDE (FormGuardarPose) - Initialization Completed ");
-        }
-
         public bool checkRobotConnection()
         {
             Logging.LogInformation(1, "ClassRTDE checkRobotConnection - Checking robot connection...");
@@ -58,14 +52,14 @@ namespace URProject.Classes
 
         public bool connectSocket(int timeOut = 500)
         {
-            ClassData.client = new TcpClient();
+            ClassData.rtdeClient = new TcpClient();
             byte[] InternalbufRecv = new byte[bufRecv.Length];
             TimeOut = timeOut;
 
             try
             {
-                ClassData.client.Connect(ClassData.robotIp, ClassData.robotPort);
-                ClassData.client.Client.BeginReceive(InternalbufRecv, 0, InternalbufRecv.Length, SocketFlags.None, AsynchReceive, InternalbufRecv);
+                ClassData.rtdeClient.Connect(ClassData.robotIp, ClassData.robotPort);
+                ClassData.rtdeClient.Client.BeginReceive(InternalbufRecv, 0, InternalbufRecv.Length, SocketFlags.None, AsynchReceive, InternalbufRecv);
                 
                 return Set_UR_Protocol_Version(2);
             }
@@ -74,7 +68,7 @@ namespace URProject.Classes
 
         private void AsynchReceive(IAsyncResult ar)
         {
-            int bytesRead = ClassData.client.Client.EndReceive(ar);
+            int bytesRead = ClassData.rtdeClient.Client.EndReceive(ar);
             byte[] InternalbufRecv = (byte[])ar.AsyncState;
 
             if (bytesRead > 0)
@@ -90,7 +84,7 @@ namespace URProject.Classes
 
                 receiveDone.Set();
 
-                ClassData.client.Client.BeginReceive(InternalbufRecv, 0, InternalbufRecv.Length, SocketFlags.None, AsynchReceive, InternalbufRecv);
+                ClassData.rtdeClient.Client.BeginReceive(InternalbufRecv, 0, InternalbufRecv.Length, SocketFlags.None, AsynchReceive, InternalbufRecv);
 
                 try
                 {
@@ -125,7 +119,7 @@ namespace URProject.Classes
         }
         public void Disconnect()
         {
-            ClassData.client.Close();
+            ClassData.rtdeClient.Close();
         }
 
         private void SendRtdePacket(RTDE_Command RTDEType, byte[] payload = null)
@@ -146,7 +140,7 @@ namespace URProject.Classes
                 Array.Copy(payload, 0, s, 3, payload.Length);
 
             receiveDone.Reset();
-            ClassData.client.Client.BeginSend(s, 0, s.Length, SocketFlags.None, null, null); // not Send() to be thread safe with the BeginReceive
+            ClassData.rtdeClient.Client.BeginSend(s, 0, s.Length, SocketFlags.None, null, null); // not Send() to be thread safe with the BeginReceive
 
         }
         private bool Send_UR_Command(RTDE_Command Cmd, byte[] payload = null)

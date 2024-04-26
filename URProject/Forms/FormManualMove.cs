@@ -14,9 +14,8 @@ namespace URProject.Forms {
     public partial class FormManualMove : Form {
         ClassRTDE classRTDE;
         ClassControl controlClass;
-        public FormManualMove(ClassRTDE rtdeClass, ClassControl controlClass) {
+        public FormManualMove(ClassControl controlClass) {
             InitializeComponent();
-            classRTDE = rtdeClass;
             ControlArticular controlArticular = new ControlArticular(classRTDE);
             controlArticular.TopLevel = false;
             controlArticular.Show();
