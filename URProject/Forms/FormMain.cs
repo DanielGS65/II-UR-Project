@@ -22,7 +22,7 @@ namespace URProject {
         private FormManualMove manualMoveForm;
         private FormSettings settingsForm;
         private Form_dioni dioniForm;
-
+        private FormMostrarPuntos formMostrarPuntos;
         public static RichTextBox richTextBoxLogger;
 
         IPAddress ipAddress;
@@ -61,6 +61,8 @@ namespace URProject {
 
             settingsForm = new FormSettings(this,xmlClass);
 
+            formMostrarPuntos = new FormMostrarPuntos(xmlClass);
+            formMostrarPuntos.Show();
             //Start Secuence
             xmlClass.readConfig();
             this.labelIP.Text = "IP: " + ClassData.robotIp;
