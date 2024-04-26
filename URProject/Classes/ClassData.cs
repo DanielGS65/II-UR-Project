@@ -24,6 +24,6 @@ namespace URProject {
         public static bool debugMode;
         public static int logLevel = 3;
 
-        public static List<double> currentPos = new List<double> { 20, -20, 50, 0, 20, -20 };
+        public static List<double> currentPos = new List<double> { -11, 28, -25, 31, 9, 0 };
     }
 }
