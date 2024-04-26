@@ -63,18 +63,20 @@ namespace URProject.Classes
 
         private void sendCommand(String command)
         {
-            String gerund = chooseGerund(command);
-            Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - " + gerund + " program ... ");
+            try
+            {
+                String gerund = chooseGerund(command);
+                Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - " + gerund + " program ... ");
 
-            var message = command;
-            var messageBytes = Encoding.ASCII.GetBytes(message);
-            ClassData.clientDashboardServer.Send(messageBytes);
-            Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - Message Send: " + message);
-
-            byte[] messageReceived = new byte[1024];
-            int byteRecv = ClassData.clientDashboardServer.Receive(messageReceived);
-
-            Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - Message Received: " + Encoding.ASCII.GetString(messageReceived, 0, byteRecv));
+                var message = command;
+                var messageBytes = Encoding.ASCII.GetBytes(message);
+                ClassData.clientDashboardServer.Send(messageBytes);
+                Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - Message Send: " + message);
+            }
+            catch (Exception err)
+            {
+                Logging.LogInformation(3, "ClassDashboardServer " + command + "Program - " + err.Message);
+            }
         }
 
         private String chooseGerund(String verb)
@@ -97,6 +99,5 @@ namespace URProject.Classes
                     return "";
             }
         }
-        
     }
 }
