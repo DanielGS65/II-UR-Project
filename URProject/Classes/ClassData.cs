@@ -15,6 +15,7 @@ namespace URProject {
         public static Socket clientControl;
 
         public static bool freeDriveMode = false;
+        public static Socket clientDashboardServer;
 
         public static string robotIp;
         public static int robotPort;

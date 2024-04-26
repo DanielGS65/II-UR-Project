@@ -59,6 +59,7 @@ namespace URProject {
             this.textBoxPosZ = new System.Windows.Forms.TextBox();
             this.textBoxPosY = new System.Windows.Forms.TextBox();
             this.textBoxPosX = new System.Windows.Forms.TextBox();
+            this.dashboardServer = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelConectionStatus.SuspendLayout();
             this.panelRobotPosition.SuspendLayout();
@@ -120,6 +121,7 @@ namespace URProject {
             this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.panelMenu.Controls.Add(this.dashboardServer);
             this.panelMenu.Controls.Add(this.buttonLogging);
             this.panelMenu.Controls.Add(this.labelPort);
             this.panelMenu.Controls.Add(this.buttonManualMove);
@@ -461,6 +463,17 @@ namespace URProject {
             this.textBoxPosX.TabIndex = 0;
             this.textBoxPosX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // dashboardServer
+            // 
+            this.dashboardServer.Location = new System.Drawing.Point(90, 341);
+            this.dashboardServer.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
+            this.dashboardServer.Name = "dashboardServer";
+            this.dashboardServer.Size = new System.Drawing.Size(74, 41);
+            this.dashboardServer.TabIndex = 10;
+            this.dashboardServer.Text = "Dashboard Server";
+            this.dashboardServer.UseVisualStyleBackColor = true;
+            this.dashboardServer.Click += new System.EventHandler(this.buttonDashboardServer_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -471,7 +484,7 @@ namespace URProject {
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelMainContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "FormMain";
             this.Text = "UR-Project";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
@@ -519,6 +532,7 @@ namespace URProject {
         public System.Windows.Forms.TextBox textBoxPosZ;
         public System.Windows.Forms.TextBox textBoxPosY;
         public System.Windows.Forms.TextBox textBoxPosX;
+        private System.Windows.Forms.Button dashboardServer;
     }
 }
 

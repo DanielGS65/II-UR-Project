@@ -18,10 +18,13 @@ namespace URProject {
         private ClassXml xmlClass;
         private ClassRTDE rtdeClass;
         private ClassControl controlClass;
+        private ClassDashboardServer dashboardServerClass;
 
         private FormManualMove manualMoveForm;
         private FormSettings settingsForm;
         private Form_dioni dioniForm;
+        private FormDashboardServer dashboardServerForm;
+
         private FormMostrarPuntos formMostrarPuntos;
         public static RichTextBox richTextBoxLogger;
 
@@ -51,10 +54,13 @@ namespace URProject {
             //Start Classes
             xmlClass = new ClassXml(this);
             rtdeClass = new ClassRTDE(this);
+            dashboardServerClass = new ClassDashboardServer();
             controlClass = new ClassControl();
 
             //Forms Init
             dioniForm = new Form_dioni();
+            dashboardServerForm = new FormDashboardServer();
+            manualMoveForm = new FormManualMove(rtdeClass);
             manualMoveForm = new FormManualMove(rtdeClass);
             manualMoveForm.TopLevel = false;
             this.panelMainContainer.Controls.Add(manualMoveForm);
@@ -114,6 +120,7 @@ namespace URProject {
                 if (rtdeClass.checkRobotConnection()) {
                     Logging.LogInformation(1, "FormMain buttonConnect_Click - Robot Detected, starting Connection");
                     rtdeClass.connectSocket();
+                    dashboardServerClass.connectSocket();
                     controlClass.connectRobotControl();
                     ChangeConnectionStatus(true);
                 } else {
@@ -152,6 +159,12 @@ namespace URProject {
             hideSecondaryForms();
             manualMoveForm.Show();
         }
+
+        private void buttonDashboardServer_Click(object sender, EventArgs e)
+        {
+            dashboardServerForm.Show();
+        }
+
 
         #endregion FormFunctions
 
