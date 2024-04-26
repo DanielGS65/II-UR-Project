@@ -71,10 +71,10 @@ namespace URProject.Classes
             ClassData.clientDashboardServer.Send(messageBytes);
             Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - Message Send: " + message);
 
-            byte[] messageReceived = new byte[1024];
-            int byteRecv = ClassData.clientDashboardServer.Receive(messageReceived);
+            // byte[] messageReceived = new byte[1024];
+            // int byteRecv = ClassData.clientDashboardServer.Receive(messageReceived);
 
-            Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - Message Received: " + Encoding.ASCII.GetString(messageReceived, 0, byteRecv));
+            // Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - Message Received: " + Encoding.ASCII.GetString(messageReceived, 0, byteRecv));
         }
 
         private String chooseGerund(String verb)

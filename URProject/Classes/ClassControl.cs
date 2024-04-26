@@ -59,6 +59,31 @@ namespace URProject.Classes {
             }
         }
 
+        public void operateTool(bool activate) {
+            if (activate) {
+                var message = "def startTool():\n" +
+                    "\tset_tool_voltage(24)\n" +
+                    "\tsleep(0.3)\n" +
+                    "\tset_tool_digital_out(0,True)\n" +
+                    "end\n" +
+                    "startTool()";
+
+                var messageBytes = Encoding.UTF8.GetBytes(message);
+                ClassData.clientControl.Send(messageBytes);
+            }
+            else{
+                var message = "def stopTool():\n" +
+                    "\tset_tool_digital_out(0,False)\n" +
+                    "\tsleep(0.3)\n" +
+                    "\tset_tool_voltage(0)\n" +
+                    "end\n" +
+                    "stopTool()";
+
+                var messageBytes = Encoding.UTF8.GetBytes(message);
+                ClassData.clientControl.Send(messageBytes);
+            }
+        }
+
         public void ToggleFreeMovement() {
             if (!ClassData.freeDriveMode) {
                 try {
