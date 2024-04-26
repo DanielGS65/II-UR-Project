@@ -113,7 +113,6 @@ namespace URProject {
         // ---------------------------
         // Form Functions
         // ---------------------------
-        #region FormFunctions
 
         #region FormFunctions
 
@@ -161,7 +160,7 @@ namespace URProject {
             hideSecondaryForms();
             manualMoveForm.Show();
         }
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonPoseTrayectory_Click(object sender, EventArgs e)
         {
             hideSecondaryForms();
             formGuardarPose.Show();
@@ -173,8 +172,6 @@ namespace URProject {
             dashboardServerForm.Show();
         }
 
-
-        #endregion FormFunctions
 
         #endregion FormFunctions
 
@@ -259,8 +256,8 @@ namespace URProject {
         }
 
 
+
         #endregion VisualFunctions
 
-        
     }
 }
