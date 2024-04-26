@@ -23,6 +23,7 @@ namespace URProject {
         private FormManualMove manualMoveForm;
         private FormSettings settingsForm;
         private Form_dioni dioniForm;
+        private FormGuardarPose formGuardarPose;
         private FormDashboardServer dashboardServerForm;
 
         private FormMostrarPuntos formMostrarPuntos;
@@ -62,6 +63,7 @@ namespace URProject {
             dashboardServerForm = new FormDashboardServer();
             manualMoveForm = new FormManualMove(rtdeClass);
             manualMoveForm = new FormManualMove(rtdeClass);
+            formGuardarPose = new FormGuardarPose();
             manualMoveForm.TopLevel = false;
             this.panelMainContainer.Controls.Add(manualMoveForm);
 
@@ -159,6 +161,12 @@ namespace URProject {
             hideSecondaryForms();
             manualMoveForm.Show();
         }
+        private void button3_Click(object sender, EventArgs e)
+        {
+            hideSecondaryForms();
+            formGuardarPose.Show();
+
+        }
 
         private void buttonDashboardServer_Click(object sender, EventArgs e)
         {
@@ -252,5 +260,7 @@ namespace URProject {
 
 
         #endregion VisualFunctions
+
+        
     }
 }

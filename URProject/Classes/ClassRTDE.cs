@@ -7,11 +7,13 @@ using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using URProject.Forms;
 
 namespace URProject.Classes {
     public class ClassRTDE {
 
         FormMain mainForm;
+        FormGuardarPose formGuardarPose;
         IPAddress ipAddress;
         IPEndPoint ipEndPoint;
 
@@ -20,9 +22,10 @@ namespace URProject.Classes {
             Logging.LogInformation(1, "ClassRTDE - Initialization Completed");
         }
 
-        public ClassRTDE()
+        public ClassRTDE(FormGuardarPose formGuardarPose)
         {
-            Logging.LogInformation(1, "ClassRTDE - Initialization Completed");
+            this.formGuardarPose = formGuardarPose;
+            Logging.LogInformation(1, "ClassRTDE (FormGuardarPose) - Initialization Completed ");
         }
 
         public bool checkRobotConnection()

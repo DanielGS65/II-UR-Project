@@ -7,54 +7,48 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using URProject.Classes;
 
 namespace URProject.Forms
 {
     public partial class FormGuardarPose : Form
     {
+        private ClassXml classXml;
+        private ClassRTDE rtdeClass;
+
+       
+
         public FormGuardarPose()
         {
             InitializeComponent();
-        }
+            classXml = new ClassXml(this);
+            rtdeClass = new ClassRTDE(this);
 
-        private bool flag;
-
-        private void buttonGuardarExtra_Click(object sender, EventArgs e)
-        {
-            flag = formConfirmacionLlamada(sender, e);
-
-            if (flag) {
-                // Guardar los datos de la pos del robot
-            }
-        }
-
-        private void buttonGuardarEstirar_Click(object sender, EventArgs e)
-        {
-            flag = formConfirmacionLlamada(sender, e);
-
-            if (flag)
-            {
-                // Guardar los datos de la pos del robot
-            }
-        }
-
-        private void buttonGuardarRecoger_Click(object sender, EventArgs e)
-        {
-            flag = formConfirmacionLlamada(sender, e);
-
-            if (flag)
-            {
-                // Guardar los datos de la pos del robot
-            }
+            
         }
 
         private void buttonGuardarHome_Click(object sender, EventArgs e)
         {
-            flag = formConfirmacionLlamada(sender, e);
 
-            if (flag)
+           if( textBox1.TextLength > 0)
             {
-                // Guardar los datos de la pos del robot
+                DialogResult resultado = MessageBox.Show("¿Are you sure?", "Accept", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (resultado == DialogResult.Yes)
+                {
+                    MessageBox.Show("Added pose");
+                    //classRTDE.getRobotPos();
+                    classXml.addPose(textBox1.Text, 25, 30, 20, 10, 25, 22);
+                }
+                else
+                {
+                    MessageBox.Show("Declined");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Please enter pose name");
             }
         }
 
