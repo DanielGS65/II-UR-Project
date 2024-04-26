@@ -79,9 +79,10 @@
             this.button_up.Location = new System.Drawing.Point(70, 99);
             this.button_up.Margin = new System.Windows.Forms.Padding(0);
             this.button_up.Name = "button_up";
-            this.button_up.Size = new System.Drawing.Size(64, 64);
+            this.button_up.Size = new System.Drawing.Size(107, 111);
             this.button_up.TabIndex = 0;
             this.button_up.UseVisualStyleBackColor = false;
+            this.button_up.Click += new System.EventHandler(this.button_up_Click);
             // 
             // button_right
             // 
@@ -91,7 +92,7 @@
             this.button_right.Location = new System.Drawing.Point(243, 245);
             this.button_right.Margin = new System.Windows.Forms.Padding(0);
             this.button_right.Name = "button_right";
-            this.button_right.Size = new System.Drawing.Size(64, 64);
+            this.button_right.Size = new System.Drawing.Size(72, 80);
             this.button_right.TabIndex = 1;
             this.button_right.UseVisualStyleBackColor = false;
             // 
@@ -103,7 +104,7 @@
             this.button_left.Location = new System.Drawing.Point(114, 245);
             this.button_left.Margin = new System.Windows.Forms.Padding(0);
             this.button_left.Name = "button_left";
-            this.button_left.Size = new System.Drawing.Size(64, 64);
+            this.button_left.Size = new System.Drawing.Size(72, 80);
             this.button_left.TabIndex = 2;
             this.button_left.UseVisualStyleBackColor = false;
             // 
@@ -115,7 +116,7 @@
             this.button_down.Location = new System.Drawing.Point(180, 306);
             this.button_down.Margin = new System.Windows.Forms.Padding(0);
             this.button_down.Name = "button_down";
-            this.button_down.Size = new System.Drawing.Size(64, 64);
+            this.button_down.Size = new System.Drawing.Size(72, 80);
             this.button_down.TabIndex = 3;
             this.button_down.UseVisualStyleBackColor = false;
             // 
@@ -519,7 +520,7 @@
             // 
             // FormManualMove
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.ClientSize = new System.Drawing.Size(939, 608);

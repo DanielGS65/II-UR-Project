@@ -32,6 +32,8 @@ namespace URProject {
             this.buttonMarcos = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.buttonPoseTrayectory = new System.Windows.Forms.Button();
+            this.buttonDashboardServer = new System.Windows.Forms.Button();
             this.buttonLogging = new System.Windows.Forms.Button();
             this.labelPort = new System.Windows.Forms.Label();
             this.buttonManualMove = new System.Windows.Forms.Button();
@@ -59,8 +61,6 @@ namespace URProject {
             this.textBoxPosZ = new System.Windows.Forms.TextBox();
             this.textBoxPosY = new System.Windows.Forms.TextBox();
             this.textBoxPosX = new System.Windows.Forms.TextBox();
-            this.buttonDashboardServer = new System.Windows.Forms.Button();
-            this.buttonPoseTrayectory = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelConectionStatus.SuspendLayout();
             this.panelRobotPosition.SuspendLayout();
@@ -141,6 +141,40 @@ namespace URProject {
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(346, 935);
             this.panelMenu.TabIndex = 4;
+            // 
+            // buttonPoseTrayectory
+            // 
+            this.buttonPoseTrayectory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.buttonPoseTrayectory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.buttonPoseTrayectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonPoseTrayectory.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonPoseTrayectory.ForeColor = System.Drawing.Color.White;
+            this.buttonPoseTrayectory.Location = new System.Drawing.Point(18, 504);
+            this.buttonPoseTrayectory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonPoseTrayectory.Name = "buttonPoseTrayectory";
+            this.buttonPoseTrayectory.Size = new System.Drawing.Size(328, 64);
+            this.buttonPoseTrayectory.TabIndex = 12;
+            this.buttonPoseTrayectory.TabStop = false;
+            this.buttonPoseTrayectory.Text = "Pose and Trayectory";
+            this.buttonPoseTrayectory.UseVisualStyleBackColor = false;
+            this.buttonPoseTrayectory.Click += new System.EventHandler(this.buttonPoseTrayectory_Click);
+            // 
+            // buttonDashboardServer
+            // 
+            this.buttonDashboardServer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
+            this.buttonDashboardServer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.buttonDashboardServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDashboardServer.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonDashboardServer.ForeColor = System.Drawing.Color.White;
+            this.buttonDashboardServer.Location = new System.Drawing.Point(16, 432);
+            this.buttonDashboardServer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonDashboardServer.Name = "buttonDashboardServer";
+            this.buttonDashboardServer.Size = new System.Drawing.Size(328, 64);
+            this.buttonDashboardServer.TabIndex = 11;
+            this.buttonDashboardServer.TabStop = false;
+            this.buttonDashboardServer.Text = "Dashboard Server";
+            this.buttonDashboardServer.UseVisualStyleBackColor = false;
+            this.buttonDashboardServer.Click += new System.EventHandler(this.buttonDashboardServer_Click);
             // 
             // buttonLogging
             // 
@@ -244,9 +278,9 @@ namespace URProject {
             this.labelConectionStatus.ForeColor = System.Drawing.Color.White;
             this.labelConectionStatus.Location = new System.Drawing.Point(147, 10);
             this.labelConectionStatus.Name = "labelConectionStatus";
-            this.labelConectionStatus.Size = new System.Drawing.Size(119, 28);
+            this.labelConectionStatus.Size = new System.Drawing.Size(130, 28);
             this.labelConectionStatus.TabIndex = 4;
-            this.labelConectionStatus.Text = "Disconected";
+            this.labelConectionStatus.Text = "Disconnected";
             // 
             // labelIP
             // 
@@ -467,40 +501,6 @@ namespace URProject {
             this.textBoxPosX.TabIndex = 0;
             this.textBoxPosX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // buttonDashboardServer
-            // 
-            this.buttonDashboardServer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.buttonDashboardServer.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
-            this.buttonDashboardServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonDashboardServer.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.buttonDashboardServer.ForeColor = System.Drawing.Color.White;
-            this.buttonDashboardServer.Location = new System.Drawing.Point(16, 432);
-            this.buttonDashboardServer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonDashboardServer.Name = "buttonDashboardServer";
-            this.buttonDashboardServer.Size = new System.Drawing.Size(328, 64);
-            this.buttonDashboardServer.TabIndex = 11;
-            this.buttonDashboardServer.TabStop = false;
-            this.buttonDashboardServer.Text = "Dashboard Server";
-            this.buttonDashboardServer.UseVisualStyleBackColor = false;
-            this.buttonDashboardServer.Click += new System.EventHandler(this.buttonDashboardServer_Click);
-            // 
-            // buttonPoseTrayectory
-            // 
-            this.buttonPoseTrayectory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(140)))), ((int)(((byte)(140)))));
-            this.buttonPoseTrayectory.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
-            this.buttonPoseTrayectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonPoseTrayectory.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.buttonPoseTrayectory.ForeColor = System.Drawing.Color.White;
-            this.buttonPoseTrayectory.Location = new System.Drawing.Point(18, 504);
-            this.buttonPoseTrayectory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.buttonPoseTrayectory.Name = "buttonPoseTrayectory";
-            this.buttonPoseTrayectory.Size = new System.Drawing.Size(328, 64);
-            this.buttonPoseTrayectory.TabIndex = 12;
-            this.buttonPoseTrayectory.TabStop = false;
-            this.buttonPoseTrayectory.Text = "Pose and Trayectory";
-            this.buttonPoseTrayectory.UseVisualStyleBackColor = false;
-            this.buttonPoseTrayectory.Click += new System.EventHandler(this.buttonPoseTrayectory_Click);
-            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -514,6 +514,7 @@ namespace URProject {
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
             this.Name = "FormMain";
             this.Text = "UR-Project";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormMain_FormClosing);
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
