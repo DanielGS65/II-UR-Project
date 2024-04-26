@@ -12,11 +12,10 @@ using URProject.Classes;
 
 namespace URProject.Forms {
     public partial class FormManualMove : Form {
-        ClassRTDE classRTDE;
         ClassControl controlClass;
         public FormManualMove(ClassControl controlClass) {
             InitializeComponent();
-            ControlArticular controlArticular = new ControlArticular(classRTDE);
+            ControlArticular controlArticular = new ControlArticular();
             controlArticular.TopLevel = false;
             controlArticular.Show();
             controlArticular.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;

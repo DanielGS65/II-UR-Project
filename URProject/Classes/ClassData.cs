@@ -12,7 +12,6 @@ namespace URProject {
         public static string configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UR-Project","config.xml");
         public static TcpClient rtdeClient;
         public static string posePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UR-Project", "pose.xml");
-        public static Socket client;
         public static Socket clientControl;
 
         public static bool freeDriveMode = false;

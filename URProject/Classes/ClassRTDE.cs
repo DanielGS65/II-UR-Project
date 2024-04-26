@@ -21,12 +21,13 @@ namespace URProject.Classes
             CONTROL_PACKAGE_START = 83,
             CONTROL_PACKAGE_PAUSE = 80
         };
-        public String ErrorMessage { get; private set; }
+        static UniversalRobot_Outputs UrOutputs = new UniversalRobot_Outputs();
+        public string ErrorMessage { get; private set; }
         ManualResetEvent receiveDone = new ManualResetEvent(false);
 
-        byte Outputs_Recipe_Id, Inputs_Recipe_Id;
-        object UrStructOuput, UrStructInput;
-        IEncoderDecoder[] UrStructOuputDecoder, UrStructInputDecoder;
+        byte Outputs_Recipe_Id;
+        object UrStructOuput;
+        IEncoderDecoder[] UrStructOuputDecoder;
 
         public event EventHandler OnDataReceive;
         public event EventHandler OnSockClosed;
@@ -58,10 +59,15 @@ namespace URProject.Classes
 
             try
             {
-                ClassData.rtdeClient.Connect(ClassData.robotIp, ClassData.robotPort);
+                ClassData.rtdeClient.Connect(ClassData.robotIp, 30004);
                 ClassData.rtdeClient.Client.BeginReceive(InternalbufRecv, 0, InternalbufRecv.Length, SocketFlags.None, AsynchReceive, InternalbufRecv);
                 
-                return Set_UR_Protocol_Version(2);
+                Set_UR_Protocol_Version(2);
+
+                Setup_Ur_Outputs(UrOutputs, 10);
+                OnDataReceive += new EventHandler(Ur3_OnDataReceive);
+                Ur_ControlStart();
+                return true;
             }
             catch { return false;}
         }
@@ -71,7 +77,7 @@ namespace URProject.Classes
             int bytesRead = ClassData.rtdeClient.Client.EndReceive(ar);
             byte[] InternalbufRecv = (byte[])ar.AsyncState;
 
-            if (bytesRead > 0)
+            if (bytesRead > 0 && ClassData.rtdeClient != null)
             {
 
                 lock (bufRecv)
@@ -111,7 +117,9 @@ namespace URProject.Classes
                             OnDataReceive(this, null);
                     }
                 }
-                catch { }
+                catch(Exception err) {
+                    Debug.WriteLine("Error: " + err.ToString());
+                }
             }
             else
                 if (OnSockClosed != null)
@@ -218,6 +226,18 @@ namespace URProject.Classes
             bool ret = Send_UR_Command(RTDE_Command.REQUEST_PROTOCOL_VERSION, V);
 
             return ret;
+        }
+
+        static void Ur3_OnSockClosed(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Closed");
+        }
+        void Ur3_OnDataReceive(object sender, EventArgs e)
+        {
+            for (int i = 0; i < 6; i++)
+            {
+                ClassData.currentPos[i] = UrOutputs.actual_TCP_pose[i];
+            }
         }
 
     }

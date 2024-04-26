@@ -16,10 +16,9 @@ namespace URProject.Forms
     {
         bool change = false;
         ClassRTDE classRTDE;
-        public ControlArticular(ClassRTDE rtdeClass)
+        public ControlArticular()
         {
             InitializeComponent();
-            classRTDE = rtdeClass;
         }
 
         private void button12_MouseCaptureChanged(object sender, EventArgs e)
@@ -46,7 +45,7 @@ namespace URProject.Forms
                     "," + hScrollBar1.Value +
                     "," + hScrollBar1.Value +"], a = 1, v = 0.25, r =0, t =10)" + "\n";
                 var messageBytes = Encoding.UTF8.GetBytes(message);
-                ClassData.client.Send(messageBytes);
+                ClassData.clientControl.Send(messageBytes);
             }
             catch (Exception err)
             {

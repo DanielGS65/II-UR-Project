@@ -30,10 +30,6 @@ namespace URProject {
         private FormMostrarPuntos formMostrarPuntos;
         public static RichTextBox richTextBoxLogger;
 
-        IPAddress ipAddress;
-        IPEndPoint ipEndPoint;
-        Socket client;
-
         #endregion LocalVariables
 
         // ---------------------------
@@ -117,7 +113,7 @@ namespace URProject {
         #region FormFunctions
 
         private void buttonConnect_Click(object sender, EventArgs e) {
-            if (ClassData.client == null || ClassData.clientControl == null) {
+            if (ClassData.rtdeClient == null || ClassData.clientControl == null || ClassData.clientDashboardServer == null) {
                 if (rtdeClass.checkRobotConnection()) {
                     Logging.LogInformation(1, "FormMain buttonConnect_Click - Robot Detected, starting Connection");
                     rtdeClass.connectSocket();
@@ -131,8 +127,9 @@ namespace URProject {
                 }
             } else {
                 Logging.LogInformation(1, "FormMain buttonConnect_Click - Disconnecting");
-                ClassData.client = null;
+                rtdeClass.Disconnect();
                 ClassData.clientControl = null;
+                ClassData.clientDashboardServer = null;
                 ChangeConnectionStatus(false);
             }
         }
@@ -231,6 +228,16 @@ namespace URProject {
                 Logging.LogInformation(1, "FormMain FormMain_FormClosing - Closing aplication");
             }
         }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            textBoxPosX.Text = ClassData.currentPos[0].ToString();
+            textBoxPosY.Text = ClassData.currentPos[1].ToString();
+            textBoxPosZ.Text = ClassData.currentPos[2].ToString();
+
+            textBoxRotX.Text = ClassData.currentPos[3].ToString();
+            textBoxRotY.Text = ClassData.currentPos[4].ToString();
+            textBoxRotZ.Text = ClassData.currentPos[5].ToString();
+        }
 
         #endregion SystemTrayFunctions
 
@@ -259,6 +266,5 @@ namespace URProject {
 
 
         #endregion VisualFunctions
-
     }
 }
