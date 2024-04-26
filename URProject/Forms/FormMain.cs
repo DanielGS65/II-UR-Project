@@ -70,7 +70,8 @@ namespace URProject {
 
             settingsForm = new FormSettings(this,xmlClass);
 
-            formMostrarPuntos = new FormMostrarPuntos(xmlClass);
+            formMostrarPuntos = new FormMostrarPuntos(xmlClass, rtdeClass);
+            formMostrarPuntos.Show();
             //Start Secuence
             xmlClass.readConfig();
             this.labelIP.Text = "IP: " + ClassData.robotIp;
@@ -139,7 +140,9 @@ namespace URProject {
 
         private void button1_Click(object sender, EventArgs e) {
             //controlClass.moveRobot();
-            controlClass.ToggleFreeMovement();
+            controlClass.operateTool(true);
+            //controlClass.operateTool(false);
+            //controlClass.ToggleFreeMovement();
             
         }
 

@@ -34,11 +34,13 @@
             this.quit = new System.Windows.Forms.Button();
             this.shutdown = new System.Windows.Forms.Button();
             this.running = new System.Windows.Forms.Button();
+            this.load = new System.Windows.Forms.Button();
+            this.directory = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // play
             // 
-            this.play.Location = new System.Drawing.Point(75, 37);
+            this.play.Location = new System.Drawing.Point(75, 130);
             this.play.Name = "play";
             this.play.Size = new System.Drawing.Size(75, 23);
             this.play.TabIndex = 0;
@@ -48,7 +50,7 @@
             // 
             // stop
             // 
-            this.stop.Location = new System.Drawing.Point(75, 91);
+            this.stop.Location = new System.Drawing.Point(75, 178);
             this.stop.Name = "stop";
             this.stop.Size = new System.Drawing.Size(75, 23);
             this.stop.TabIndex = 1;
@@ -58,7 +60,7 @@
             // 
             // pause
             // 
-            this.pause.Location = new System.Drawing.Point(75, 149);
+            this.pause.Location = new System.Drawing.Point(75, 230);
             this.pause.Name = "pause";
             this.pause.Size = new System.Drawing.Size(75, 23);
             this.pause.TabIndex = 2;
@@ -68,7 +70,7 @@
             // 
             // quit
             // 
-            this.quit.Location = new System.Drawing.Point(75, 207);
+            this.quit.Location = new System.Drawing.Point(75, 278);
             this.quit.Name = "quit";
             this.quit.Size = new System.Drawing.Size(75, 23);
             this.quit.TabIndex = 3;
@@ -78,7 +80,7 @@
             // 
             // shutdown
             // 
-            this.shutdown.Location = new System.Drawing.Point(75, 269);
+            this.shutdown.Location = new System.Drawing.Point(75, 323);
             this.shutdown.Name = "shutdown";
             this.shutdown.Size = new System.Drawing.Size(75, 23);
             this.shutdown.TabIndex = 4;
@@ -88,7 +90,7 @@
             // 
             // running
             // 
-            this.running.Location = new System.Drawing.Point(75, 335);
+            this.running.Location = new System.Drawing.Point(75, 372);
             this.running.Name = "running";
             this.running.Size = new System.Drawing.Size(75, 23);
             this.running.TabIndex = 5;
@@ -96,11 +98,30 @@
             this.running.UseVisualStyleBackColor = true;
             this.running.Click += new System.EventHandler(this.running_Click);
             // 
+            // load
+            // 
+            this.load.Location = new System.Drawing.Point(75, 82);
+            this.load.Name = "load";
+            this.load.Size = new System.Drawing.Size(75, 23);
+            this.load.TabIndex = 6;
+            this.load.Text = "Load";
+            this.load.UseVisualStyleBackColor = true;
+            this.load.Click += new System.EventHandler(this.load_Click);
+            // 
+            // directory
+            // 
+            this.directory.Location = new System.Drawing.Point(206, 82);
+            this.directory.Name = "directory";
+            this.directory.Size = new System.Drawing.Size(312, 20);
+            this.directory.TabIndex = 7;
+            // 
             // FormDashboardServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.directory);
+            this.Controls.Add(this.load);
             this.Controls.Add(this.running);
             this.Controls.Add(this.shutdown);
             this.Controls.Add(this.quit);
@@ -110,6 +131,7 @@
             this.Name = "FormDashboardServer";
             this.Text = "FormDashboardServer";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -121,5 +143,7 @@
         private System.Windows.Forms.Button quit;
         private System.Windows.Forms.Button shutdown;
         private System.Windows.Forms.Button running;
+        private System.Windows.Forms.Button load;
+        private System.Windows.Forms.TextBox directory;
     }
 }

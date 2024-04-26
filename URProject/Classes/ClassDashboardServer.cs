@@ -31,56 +31,75 @@ namespace URProject.Classes
 
         }
 
+        public void loadProgram(String program)
+        {
+            sendCommand("load", program);
+        }
+
         public void playProgram()
         {
-            sendCommand("play");
+            sendCommand("play", null);
         }
 
         public void stopProgram()
         {
-            sendCommand("stop");
+            sendCommand("stop", null);
         }
 
         public void pauseProgram()
         {
-            sendCommand("pause");
+            sendCommand("pause", null);
         }
 
         public void quitProgram()
         {
-            sendCommand("quit");
+            sendCommand("quit", null);
         }
 
         public void shutdownProgram()
         {
-            sendCommand("shutdown");
+            sendCommand("shutdown", null);
         }
 
         public void runningProgram()
         {
-            sendCommand("running");
+            sendCommand("running", null);
         }
 
-        private void sendCommand(String command)
+        private void sendCommand(String command, String program)
         {
-            String gerund = chooseGerund(command);
-            Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - " + gerund + " program ... ");
+            try
+            {
+                String gerund = chooseGerund(command);
+                Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - " + gerund + " program ... ");
+                var message = command + '\n';
 
-            var message = command;
-            var messageBytes = Encoding.ASCII.GetBytes(message);
-            ClassData.clientDashboardServer.Send(messageBytes);
-            Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - Message Send: " + message);
+                if (program != null)
+                {
+                    message = command + " " + program + '\n';
+                }
+                
+                var messageBytes = Encoding.ASCII.GetBytes(message);
+                ClassData.clientDashboardServer.Send(messageBytes);
+                Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - Message Send: " + message);
 
-            byte[] messageReceived = new byte[1024];
-            int byteRecv = ClassData.clientDashboardServer.Receive(messageReceived);
+                byte[] messageReceived = new byte[1024];
+                int byteRecv = ClassData.clientDashboardServer.Receive(messageReceived);
 
-            Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - Message Received: " + Encoding.ASCII.GetString(messageReceived, 0, byteRecv));
+                Logging.LogInformation(1, "ClassDashboardServer " + command + "Program - Message Received: " + Encoding.ASCII.GetString(messageReceived, 0, byteRecv));
+            }
+            catch (Exception err)
+            {
+                Logging.LogInformation(3, "ClassDashboardServer " + command + "Program - " + err.Message);
+            }
         }
 
         private String chooseGerund(String verb)
         {
             switch (verb)
             {
+                case "load":
+                    return "Loading";
                 case "play":
                     return "Playing";
                 case "stop":
@@ -97,6 +116,5 @@ namespace URProject.Classes
                     return "";
             }
         }
-        
     }
 }
