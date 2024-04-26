@@ -66,7 +66,8 @@ namespace URProject {
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(130, 420);
+            this.button1.Location = new System.Drawing.Point(146, 681);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(191, 50);
             this.button1.TabIndex = 0;
@@ -83,7 +84,7 @@ namespace URProject {
             this.panelMainContainer.Location = new System.Drawing.Point(313, 82);
             this.panelMainContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMainContainer.Name = "panelMainContainer";
-            this.panelMainContainer.Size = new System.Drawing.Size(687, 386);
+            this.panelMainContainer.Size = new System.Drawing.Size(773, 622);
             this.panelMainContainer.TabIndex = 1;
             // 
             // buttonMarcos
@@ -98,14 +99,15 @@ namespace URProject {
             this.buttonMarcos.Size = new System.Drawing.Size(292, 51);
             this.buttonMarcos.TabIndex = 2;
             this.buttonMarcos.TabStop = false;
-            this.buttonMarcos.Text = "Botón debug Marcos";
+            this.buttonMarcos.Text = "Robot Data";
             this.buttonMarcos.UseVisualStyleBackColor = false;
             this.buttonMarcos.Click += new System.EventHandler(this.buttonDebugMarcos);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(13, 420);
+            this.button2.Location = new System.Drawing.Point(15, 679);
+            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(113, 52);
             this.button2.TabIndex = 3;
@@ -132,7 +134,7 @@ namespace URProject {
             this.panelMenu.Location = new System.Drawing.Point(-13, -6);
             this.panelMenu.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(308, 487);
+            this.panelMenu.Size = new System.Drawing.Size(347, 748);
             this.panelMenu.TabIndex = 4;
             // 
             // buttonLogging
@@ -142,7 +144,8 @@ namespace URProject {
             this.buttonLogging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogging.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonLogging.ForeColor = System.Drawing.Color.White;
-            this.buttonLogging.Location = new System.Drawing.Point(13, 347);
+            this.buttonLogging.Location = new System.Drawing.Point(15, 607);
+            this.buttonLogging.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonLogging.Name = "buttonLogging";
             this.buttonLogging.Size = new System.Drawing.Size(292, 51);
             this.buttonLogging.TabIndex = 9;
@@ -463,7 +466,7 @@ namespace URProject {
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
-            this.ClientSize = new System.Drawing.Size(1011, 478);
+            this.ClientSize = new System.Drawing.Size(1137, 737);
             this.Controls.Add(this.panelRobotPosition);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelMainContainer);
