@@ -68,7 +68,8 @@ namespace URProject {
 
             settingsForm = new FormSettings(this,xmlClass);
 
-            formMostrarPuntos = new FormMostrarPuntos(xmlClass);
+            formMostrarPuntos = new FormMostrarPuntos(xmlClass, rtdeClass);
+            formMostrarPuntos.Show();
             //Start Secuence
             xmlClass.readConfig();
             this.labelIP.Text = "IP: " + ClassData.robotIp;
