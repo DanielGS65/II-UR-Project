@@ -35,18 +35,28 @@ namespace URProject.Forms
 
         private void ValueChanged(object sender, EventArgs e)
         {
-            float j1 = (float) hScrollBar1.Value / 100f;
-            float j2 = (float) hScrollBar2.Value / 100f;
-            float j3 = (float) hScrollBar3.Value / 100f;
-            float j4 = (float) hScrollBar4.Value / 100f;
-            float j5 = (float) hScrollBar5.Value / 100f;
-            float j6 = (float) hScrollBar6.Value / 100f;
+            joint1.Text = (hScrollBar1.Value / 1f).ToString();
+            joint2.Text = (hScrollBar2.Value / 100f).ToString();
+            joint3.Text = (hScrollBar3.Value / 100f).ToString();
+            joint4.Text = (hScrollBar4.Value / 100f).ToString();
+            joint5.Text = (hScrollBar5.Value / 100f).ToString();
+            joint6.Text = (hScrollBar6.Value / 100f).ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            float j1 = (float)hScrollBar1.Value / 1f;
+            float j2 = (float)hScrollBar2.Value / 1f;
+            float j3 = (float)hScrollBar3.Value / 1f;
+            float j4 = (float)hScrollBar4.Value / 1f;
+            float j5 = (float)hScrollBar5.Value / 1f;
+            float j6 = (float)hScrollBar6.Value / 1f;
             //var cliente = ClassData.client;
             Debug.WriteLine("Joint0: {0}\nJoint1: {1}\nJoint2: {2}\nJoint3: {3}\nJoint4: {4}\nJoint5: {5}\n",
                 j1, j2, j3, j4, j5, j6);
             try
             {
-                var message = "movej(p[" + j1+","+j2+","+j2+","+j3+","+j4+","+j5+
+                var message = "movej([" + j1 + "," + j2 + "," + j2 + "," + j3 + "," + j4 + "," + j5 +
                     "], a = 1, v = 0.25, r =0, t =10)" + "\n";
                 var messageBytes = Encoding.UTF8.GetBytes(message);
                 //cliente.Send(messageBytes);
