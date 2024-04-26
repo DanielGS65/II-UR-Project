@@ -48,7 +48,7 @@ namespace URProject.Classes {
 
         public void moveRobot(double X, double Y, double Z, double RX, double RY, double RZ) {
             try {
-                var message = "movej(p[" + X + ", " + Y + ", " + Z + ", " + RX + ", " + RY + ", " + RZ +"], a = 1, v = 0.25, r =0, t =10)" + "\n";
+                var message = "movej(p[" + X + ", " + Y + ", " + Z + ", " + RX + ", " + RY + ", " + RZ + "], a = 1, v = 0.25, r =0, t =10)" + "\n";
                 var messageBytes = Encoding.UTF8.GetBytes(message);
                 ClassData.clientControl.Send(messageBytes);
             } catch (Exception err) {
