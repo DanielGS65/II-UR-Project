@@ -27,6 +27,7 @@ namespace URProject {
 
         private FormManualMove manualMoveForm;
         private FormSettings settingsForm;
+        private FormInfoSistema formInfoSistema;
         private Form_dioni dioniForm;
 
         public static RichTextBox richTextBoxLogger;
@@ -61,6 +62,7 @@ namespace URProject {
 
             //Forms Init
             dioniForm = new Form_dioni();
+            formInfoSistema = new FormInfoSistema(rtdeClass);
             manualMoveForm = new FormManualMove();
             manualMoveForm.TopLevel = false;
             this.panelMainContainer.Controls.Add(manualMoveForm);
@@ -158,7 +160,7 @@ namespace URProject {
         }
 
         private void buttonDebugMarcos(object sender, EventArgs e) {
-
+            formInfoSistema.Show();
         }
 
         private void button2_Click(object sender, EventArgs e) {

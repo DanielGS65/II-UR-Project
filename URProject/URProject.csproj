@@ -53,6 +53,8 @@
     <Compile Include="Classes\ClassLogging.cs" />
     <Compile Include="Classes\ClassRTDE.cs" />
     <Compile Include="Classes\ClassXml.cs" />
+    <Compile Include="Classes\Encoder_Decoder.cs" />
+    <Compile Include="Classes\UR_Data.cs" />
     <Compile Include="Forms\FormInfoSistema.cs">
       <SubType>Form</SubType>
     </Compile>
