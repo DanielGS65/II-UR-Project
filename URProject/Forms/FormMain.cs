@@ -61,8 +61,7 @@ namespace URProject {
             //Forms Init
             dioniForm = new Form_dioni();
             dashboardServerForm = new FormDashboardServer();
-            manualMoveForm = new FormManualMove(rtdeClass);
-            manualMoveForm = new FormManualMove(rtdeClass);
+            manualMoveForm = new FormManualMove(rtdeClass,controlClass);
             formGuardarPose = new FormGuardarPose();
             manualMoveForm.TopLevel = false;
             this.panelMainContainer.Controls.Add(manualMoveForm);
@@ -70,7 +69,6 @@ namespace URProject {
             settingsForm = new FormSettings(this,xmlClass);
 
             formMostrarPuntos = new FormMostrarPuntos(xmlClass);
-            formMostrarPuntos.Show();
             //Start Secuence
             xmlClass.readConfig();
             this.labelIP.Text = "IP: " + ClassData.robotIp;
@@ -163,6 +161,7 @@ namespace URProject {
         private void buttonPoseTrayectory_Click(object sender, EventArgs e)
         {
             hideSecondaryForms();
+            formMostrarPuntos.Show();
             formGuardarPose.Show();
 
         }

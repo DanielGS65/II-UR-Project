@@ -17,7 +17,6 @@ namespace URProject.Forms
         private ClassRTDE rtdeClass;
 
        
-
         public FormGuardarPose()
         {
             InitializeComponent();

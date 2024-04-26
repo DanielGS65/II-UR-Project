@@ -25,7 +25,8 @@ namespace URProject.Classes {
         // ---------------------------
         #region InitFunctions
 
-        public ClassControl() { }
+        public ClassControl() { 
+        }
 
         public void connectRobotControl() {
             try {
@@ -34,6 +35,8 @@ namespace URProject.Classes {
                 ClassData.clientControl = new Socket(ipAddress.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
                 ClassData.clientControl.Connect(ipEndPoint);
                 Logging.LogInformation(1, "ClassControl connectRobotControl - Socket Created");
+
+                moveRobot(ClassData.currentPos);
             } catch (Exception err) {
                 Logging.LogInformation(3, "ClassControl connectRobotControl - " + err.Message);
             }
@@ -46,9 +49,9 @@ namespace URProject.Classes {
         // ---------------------------
         #region RobotMovement
 
-        public void moveRobot(double X, double Y, double Z, double RX, double RY, double RZ) {
+        public void moveRobot(List<double> position) {
             try {
-                var message = "movej(p[" + X + ", " + Y + ", " + Z + ", " + RX + ", " + RY + ", " + RZ + "], a = 1, v = 0.25, r =0, t =10)" + "\n";
+                var message = "movej(p[" + position[0]/100 + ", " + position[1]/100 + ", " + position[2]/100 + ", " + position[3]/10 + ", " + position[4]/10 + ", " + position[5]/10 + "], a = 1, v = 0.25, r =0, t =10)" + "\n";
                 var messageBytes = Encoding.UTF8.GetBytes(message);
                 ClassData.clientControl.Send(messageBytes);
             } catch (Exception err) {
@@ -90,7 +93,6 @@ namespace URProject.Classes {
         }
 
         #endregion RobotMovement
-
 
     }
 }

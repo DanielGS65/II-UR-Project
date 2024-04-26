@@ -13,7 +13,8 @@ using URProject.Classes;
 namespace URProject.Forms {
     public partial class FormManualMove : Form {
         ClassRTDE classRTDE;
-        public FormManualMove(ClassRTDE rtdeClass) {
+        ClassControl controlClass;
+        public FormManualMove(ClassRTDE rtdeClass, ClassControl controlClass) {
             InitializeComponent();
             classRTDE = rtdeClass;
             ControlArticular controlArticular = new ControlArticular(classRTDE);
@@ -22,6 +23,7 @@ namespace URProject.Forms {
             controlArticular.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             //tabPage2.Controls.Add(controlArticular);
             this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            this.controlClass = controlClass;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -37,6 +39,11 @@ namespace URProject.Forms {
         private void label2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_up_Click(object sender, EventArgs e) {
+            ClassData.currentPos[2] = ClassData.currentPos[2] + 10;
+            controlClass.moveRobot(ClassData.currentPos);
         }
     }
 }
