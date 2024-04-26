@@ -137,7 +137,9 @@ namespace URProject {
 
         private void button1_Click(object sender, EventArgs e) {
             //controlClass.moveRobot();
-            controlClass.ToggleFreeMovement();
+            controlClass.operateTool(true);
+            //controlClass.operateTool(false);
+            //controlClass.ToggleFreeMovement();
             
         }
 
