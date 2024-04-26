@@ -17,10 +17,11 @@ namespace URProject.Forms {
             InitializeComponent();
             classRTDE = rtdeClass;
             ControlArticular controlArticular = new ControlArticular(classRTDE);
-            controlArticular.TopLevel = false;
+            controlArticular.TopLevel = true;
             controlArticular.Show();
             controlArticular.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            tabPage2.Controls.Add(controlArticular);
+            //tabPage2.Controls.Add(controlArticular);
+            controlArticular.Show();
             this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
         }
 

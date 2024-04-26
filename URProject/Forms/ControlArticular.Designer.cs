@@ -45,9 +45,9 @@
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.hScrollBar2 = new System.Windows.Forms.HScrollBar();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.hScrollBar1 = new System.Windows.Forms.HScrollBar();
+            this.panel3 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel23.SuspendLayout();
             this.panel24.SuspendLayout();
@@ -59,7 +59,6 @@
             this.panel12.SuspendLayout();
             this.panel7.SuspendLayout();
             this.panel8.SuspendLayout();
-            this.panel3.SuspendLayout();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -73,6 +72,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel6);
             this.panel2.Controls.Add(this.panel23);
             this.panel2.Controls.Add(this.panel19);
             this.panel2.Controls.Add(this.panel15);
@@ -104,6 +104,8 @@
             // 
             this.hScrollBar6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hScrollBar6.Location = new System.Drawing.Point(0, 0);
+            this.hScrollBar6.Maximum = 314;
+            this.hScrollBar6.Minimum = -314;
             this.hScrollBar6.Name = "hScrollBar6";
             this.hScrollBar6.Size = new System.Drawing.Size(422, 44);
             this.hScrollBar6.TabIndex = 1;
@@ -128,6 +130,8 @@
             // 
             this.hScrollBar5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hScrollBar5.Location = new System.Drawing.Point(0, 0);
+            this.hScrollBar5.Maximum = 314;
+            this.hScrollBar5.Minimum = -314;
             this.hScrollBar5.Name = "hScrollBar5";
             this.hScrollBar5.Size = new System.Drawing.Size(422, 44);
             this.hScrollBar5.TabIndex = 1;
@@ -155,6 +159,8 @@
             // 
             this.hScrollBar4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hScrollBar4.Location = new System.Drawing.Point(0, 0);
+            this.hScrollBar4.Maximum = 314;
+            this.hScrollBar4.Minimum = -314;
             this.hScrollBar4.Name = "hScrollBar4";
             this.hScrollBar4.Size = new System.Drawing.Size(422, 44);
             this.hScrollBar4.TabIndex = 1;
@@ -179,6 +185,8 @@
             // 
             this.hScrollBar3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hScrollBar3.Location = new System.Drawing.Point(0, 0);
+            this.hScrollBar3.Maximum = 314;
+            this.hScrollBar3.Minimum = -314;
             this.hScrollBar3.Name = "hScrollBar3";
             this.hScrollBar3.Size = new System.Drawing.Size(422, 44);
             this.hScrollBar3.TabIndex = 1;
@@ -203,22 +211,16 @@
             // 
             this.hScrollBar2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hScrollBar2.Location = new System.Drawing.Point(0, 0);
+            this.hScrollBar2.Maximum = 314;
+            this.hScrollBar2.Minimum = -314;
             this.hScrollBar2.Name = "hScrollBar2";
             this.hScrollBar2.Size = new System.Drawing.Size(422, 44);
             this.hScrollBar2.TabIndex = 1;
             // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.panel6);
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(521, 44);
-            this.panel3.TabIndex = 0;
-            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.hScrollBar1);
-            this.panel6.Location = new System.Drawing.Point(51, 0);
+            this.panel6.Location = new System.Drawing.Point(6, 0);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(422, 44);
             this.panel6.TabIndex = 3;
@@ -227,10 +229,19 @@
             // 
             this.hScrollBar1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.hScrollBar1.Location = new System.Drawing.Point(0, 0);
+            this.hScrollBar1.Maximum = 314;
+            this.hScrollBar1.Minimum = -314;
             this.hScrollBar1.Name = "hScrollBar1";
             this.hScrollBar1.Size = new System.Drawing.Size(422, 44);
             this.hScrollBar1.TabIndex = 0;
             this.hScrollBar1.ValueChanged += new System.EventHandler(this.ValueChanged);
+            // 
+            // panel3
+            // 
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(521, 44);
+            this.panel3.TabIndex = 0;
             // 
             // ControlArticular
             // 
@@ -253,7 +264,6 @@
             this.panel12.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -263,7 +273,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel23;
         private System.Windows.Forms.Panel panel24;
         private System.Windows.Forms.HScrollBar hScrollBar6;
@@ -281,5 +290,6 @@
         private System.Windows.Forms.HScrollBar hScrollBar2;
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.HScrollBar hScrollBar1;
+        private System.Windows.Forms.Panel panel3;
     }
 }
