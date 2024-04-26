@@ -8,11 +8,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using URProject.Classes;
 
 namespace URProject.Forms {
     public partial class FormManualMove : Form {
-        public FormManualMove() {
+        ClassRTDE classRTDE;
+        ClassControl controlClass;
+        public FormManualMove(ClassRTDE rtdeClass, ClassControl controlClass) {
             InitializeComponent();
+            classRTDE = rtdeClass;
+            ControlArticular controlArticular = new ControlArticular(classRTDE);
+            controlArticular.TopLevel = false;
+            controlArticular.Show();
+            controlArticular.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            //tabPage2.Controls.Add(controlArticular);
+            this.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            this.controlClass = controlClass;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -68,6 +79,11 @@ namespace URProject.Forms {
         private void label16_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button_up_Click(object sender, EventArgs e) {
+            ClassData.currentPos[2] = ClassData.currentPos[2] + 10;
+            controlClass.moveRobot(ClassData.currentPos);
         }
     }
 }
