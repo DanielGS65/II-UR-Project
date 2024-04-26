@@ -56,6 +56,20 @@ namespace URProject.Classes {
             }
         }
 
+        public void moveArtRobot(double X, double Y, double Z, double RX, double RY, double RZ)
+        {
+            try
+            {
+                var message = "movej([" + X + ", " + Y + ", " + Z + ", " + RX + ", " + RY + ", " + RZ + "], a = 1, v = 0.25, r =0, t =10)" + "\n";
+                var messageBytes = Encoding.UTF8.GetBytes(message);
+                ClassData.clientControl.Send(messageBytes);
+            }
+            catch (Exception err)
+            {
+                Logging.LogInformation(3, "FormMain button1_Click - " + err.Message);
+            }
+        }
+
         public void ToggleFreeMovement() {
             if (!ClassData.freeDriveMode) {
                 try {
