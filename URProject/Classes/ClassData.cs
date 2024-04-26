@@ -10,10 +10,10 @@ namespace URProject {
     public static class ClassData {
         public static string logPath = Path.Combine(Path.GetPathRoot(Environment.SystemDirectory), "UR-Project", "logs");
         public static string configPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UR-Project","config.xml");
+        public static TcpClient rtdeClient;
         public static string posePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UR-Project", "pose.xml");
         public static string trajectoryPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UR-Project", "trajectory.xml");
 
-        public static Socket client;
         public static Socket clientControl;
 
         public static bool freeDriveMode = false;

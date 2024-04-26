@@ -12,7 +12,6 @@ using URProject.Classes;
 
 namespace URProject.Forms {
     public partial class FormManualMove : Form {
-        ClassRTDE classRTDE;
         ClassControl controlClass;
 
         // Variables
@@ -21,7 +20,6 @@ namespace URProject.Forms {
         private int precision; // Variable para almacenar la precision
         public FormManualMove(ClassRTDE rtdeClass, ClassControl controlClass) {
             InitializeComponent();
-            classRTDE = rtdeClass;
             ControlArticular controlArticular = new ControlArticular(classRTDE);
             controlArticular.TopLevel = true;
             controlArticular.Show();
