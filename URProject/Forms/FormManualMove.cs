@@ -12,7 +12,6 @@ using URProject.Classes;
 
 namespace URProject.Forms {
     public partial class FormManualMove : Form {
-        ClassRTDE classRTDE;
         ClassControl controlClass;
 
         // Variables

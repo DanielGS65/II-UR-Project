@@ -14,7 +14,6 @@ namespace URProject {
         public static string posePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UR-Project", "pose.xml");
         public static string trajectoryPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UR-Project", "trajectory.xml");
 
-        public static Socket client;
         public static Socket clientControl;
 
         public static bool freeDriveMode = false;

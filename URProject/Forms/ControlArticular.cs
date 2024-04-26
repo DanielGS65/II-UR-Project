@@ -18,10 +18,9 @@ namespace URProject.Forms
     {
         bool change = false;
         ClassRTDE classRTDE;
-        public ControlArticular(ClassRTDE rtdeClass)
+        public ControlArticular()
         {
             InitializeComponent();
-            classRTDE = rtdeClass;
         }
 
         private void button12_MouseCaptureChanged(object sender, EventArgs e)
