@@ -59,7 +59,7 @@ namespace URProject.Forms
                 var message = "movej([" + j1 + "," + j2 + "," + j2 + "," + j3 + "," + j4 + "," + j5 +
                     "], a = 1, v = 0.25, r =0, t =10)" + "\n";
                 var messageBytes = Encoding.UTF8.GetBytes(message);
-                //cliente.Send(messageBytes);
+                ClassData.client.Send(messageBytes);
             }
             catch (Exception err)
             {
