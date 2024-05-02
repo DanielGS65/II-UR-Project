@@ -57,6 +57,7 @@
     <Compile Include="Classes\ClassDashboardServer.cs" />
     <Compile Include="Classes\ClassData.cs" />
     <Compile Include="Classes\ClassLogging.cs" />
+    <Compile Include="Classes\ClassMODBUS.cs" />
     <Compile Include="Classes\ClassRTDE.cs" />
     <Compile Include="Classes\ClassXml.cs" />
     <Compile Include="Classes\Encoder_Decoder.cs" />
