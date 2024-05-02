@@ -22,16 +22,14 @@ namespace URProject {
 
         private FormManualMove manualMoveForm;
         private FormSettings settingsForm;
+        private FormInfoSistema formInfoSistema;
         private Form_dioni dioniForm;
         private FormGuardarPose formGuardarPose;
         private FormDashboardServer dashboardServerForm;
+        private FormArticularMove articularMoveForm;
 
         private FormMostrarPuntos formMostrarPuntos;
         public static RichTextBox richTextBoxLogger;
-
-        IPAddress ipAddress;
-        IPEndPoint ipEndPoint;
-        Socket client;
 
         #endregion LocalVariables
 
@@ -60,15 +58,33 @@ namespace URProject {
 
             //Forms Init
             dioniForm = new Form_dioni();
+
+            articularMoveForm = new FormArticularMove();
+            articularMoveForm.TopLevel = false;
+            this.panelMainContainer.Controls.Add(articularMoveForm);
+
             dashboardServerForm = new FormDashboardServer();
+            dashboardServerForm.TopLevel = false;
+            this.panelMainContainer.Controls.Add(dashboardServerForm);
+
             manualMoveForm = new FormManualMove(rtdeClass,controlClass);
-            formGuardarPose = new FormGuardarPose();
             manualMoveForm.TopLevel = false;
+            manualMoveForm.Size = panelMainContainer.Size;
             this.panelMainContainer.Controls.Add(manualMoveForm);
+
+            /*formGuardarPose = new FormGuardarPose();
+            formGuardarPose.TopLevel = false;
+            this.panelMainContainer.Controls.Add(formGuardarPose);*/
+
+            //formInfoSistema = new FormInfoSistema(rtdeClass);
+
 
             settingsForm = new FormSettings(this,xmlClass);
 
-            formMostrarPuntos = new FormMostrarPuntos(xmlClass);
+            formMostrarPuntos = new FormMostrarPuntos(xmlClass, rtdeClass);
+            formMostrarPuntos.TopLevel = false;
+            this.panelMainContainer.Controls.Add(formMostrarPuntos);
+
             //Start Secuence
             xmlClass.readConfig();
             this.labelIP.Text = "IP: " + ClassData.robotIp;
@@ -111,11 +127,10 @@ namespace URProject {
         // ---------------------------
         // Form Functions
         // ---------------------------
-
         #region FormFunctions
 
         private void buttonConnect_Click(object sender, EventArgs e) {
-            if (ClassData.client == null || ClassData.clientControl == null) {
+            if (ClassData.rtdeClient == null || ClassData.clientControl == null || ClassData.clientDashboardServer == null) {
                 if (rtdeClass.checkRobotConnection()) {
                     Logging.LogInformation(1, "FormMain buttonConnect_Click - Robot Detected, starting Connection");
                     rtdeClass.connectSocket();
@@ -129,20 +144,28 @@ namespace URProject {
                 }
             } else {
                 Logging.LogInformation(1, "FormMain buttonConnect_Click - Disconnecting");
-                ClassData.client = null;
+                rtdeClass.Disconnect();
                 ClassData.clientControl = null;
+                ClassData.clientDashboardServer = null;
                 ChangeConnectionStatus(false);
             }
         }
 
+        private void buttonArticualMove_Click(object sender, EventArgs e) {
+            hideSecondaryForms();
+            articularMoveForm.Show();
+        }
+
         private void button1_Click(object sender, EventArgs e) {
             //controlClass.moveRobot();
-            controlClass.ToggleFreeMovement();
+            //controlClass.operateTool(true);
+            controlClass.operateTool(false);
+            //controlClass.ToggleFreeMovement();
             
         }
 
         private void buttonDebugMarcos(object sender, EventArgs e) {
-
+            formInfoSistema.Show();
         }
 
         private void button2_Click(object sender, EventArgs e) {
@@ -162,12 +185,12 @@ namespace URProject {
         {
             hideSecondaryForms();
             formMostrarPuntos.Show();
-            formGuardarPose.Show();
-
+            //formGuardarPose.Show();
         }
 
         private void buttonDashboardServer_Click(object sender, EventArgs e)
         {
+            hideSecondaryForms();
             dashboardServerForm.Show();
         }
 
@@ -229,6 +252,16 @@ namespace URProject {
                 Logging.LogInformation(1, "FormMain FormMain_FormClosing - Closing aplication");
             }
         }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            textBoxPosX.Text = ClassData.currentPos[0].ToString();
+            textBoxPosY.Text = ClassData.currentPos[1].ToString();
+            textBoxPosZ.Text = ClassData.currentPos[2].ToString();
+
+            textBoxRotX.Text = ClassData.currentPos[3].ToString();
+            textBoxRotY.Text = ClassData.currentPos[4].ToString();
+            textBoxRotZ.Text = ClassData.currentPos[5].ToString();
+        }
 
         #endregion SystemTrayFunctions
 
@@ -251,12 +284,16 @@ namespace URProject {
 
         public void hideSecondaryForms() {
             manualMoveForm.Hide();
+            dashboardServerForm.Hide();
+            articularMoveForm.Hide();
+            formMostrarPuntos.Hide();
             richTextBoxLogger.Visible = false;
         }
 
 
 
         #endregion VisualFunctions
+
 
     }
 }

@@ -89,6 +89,20 @@ namespace URProject.Classes {
             document.Save(ClassData.posePath);
         }
 
+        public void createTrayectory()
+        {
+            // [X, Y, Z, Rx, Ry, Rz]
+
+
+            XmlDocument document = new XmlDocument();
+
+            XmlNode posesRoot = document.CreateElement("Trajectory");
+
+
+            document.AppendChild(posesRoot);
+
+            document.Save(ClassData.trajectoryPath);
+        }
         #endregion CreateFunctions
 
         // ---------------------------
@@ -119,21 +133,37 @@ namespace URProject.Classes {
             }
         }
 
-        public void addPose(string id,double x, double y, double z, double rx, double ry, double rz)
+        public void addPose(string id,double x, double y, double z, double rx, double ry, double rz , string primaryNode)
         {
-
+            string path  = "";
             XmlDocument document = new XmlDocument();
+            if (primaryNode.Equals( "Poses"))
+            {
+                path = ClassData.posePath;
+            }
+            else
+            {
+                path = ClassData.trajectoryPath;
+            }
             try
             {
-                document.Load(ClassData.posePath);
+                document.Load(path);
             }
             catch (Exception err)
             {
                 Logging.LogInformation(2, "ClassXml saveConfig - " + err.Message);
-                createPose();
-                document.Load(ClassData.posePath);
+                if (primaryNode == "Poses")
+                {
+                    createPose();
+                }
+                else
+                {
+                    createTrayectory();
+                }
+                
+                document.Load(path);
             }
-            XmlNode posesRoot = document.SelectSingleNode("//Poses");
+            XmlNode posesRoot = document.SelectSingleNode("//" + primaryNode);
             XmlNode poseRobot = document.CreateElement("Pose");
 
             XmlAttribute attributeId = document.CreateAttribute("Id");
@@ -161,7 +191,7 @@ namespace URProject.Classes {
             poseRobot.Attributes["Rz"].Value = rz.ToString(); ;
 
             posesRoot.AppendChild(poseRobot);
-            document.Save(ClassData.posePath);
+            document.Save(path);
 
 
 
@@ -216,6 +246,33 @@ namespace URProject.Classes {
             }
             
 
+        }
+
+       public List<List<double>> getTrajectory()
+        {
+            List<double> auxPoint = new List<double> { 0,0,0,0,0,0};
+            List<List <double>> listPose = new List<List<double>>();
+
+            XmlDocument document = new XmlDocument();
+
+            document.Load(ClassData.trajectoryPath);
+            XmlNodeList trajectory = document.SelectNodes("//Trajectory/Pose");
+
+            foreach (XmlNode trajectoryNode in trajectory)
+            {
+                auxPoint.Clear();
+
+                auxPoint.Add(double.Parse(trajectoryNode.Attributes["X"].Value.ToString())) ;
+                auxPoint.Add(double.Parse(trajectoryNode.Attributes["Y"].Value.ToString())) ;
+                auxPoint.Add(double.Parse(trajectoryNode.Attributes["Z"].Value.ToString())) ;
+                auxPoint.Add(double.Parse(trajectoryNode.Attributes["Rx"].Value.ToString())) ;
+                auxPoint.Add(double.Parse(trajectoryNode.Attributes["Ry"].Value.ToString())) ;
+                auxPoint.Add(double.Parse(trajectoryNode.Attributes["Rz"].Value.ToString())) ;
+
+                listPose.Add(auxPoint);
+               
+            }
+            return listPose;
         }
 
         #endregion ReadFunctions

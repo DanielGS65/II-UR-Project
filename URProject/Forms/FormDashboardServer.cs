@@ -23,7 +23,12 @@ namespace URProject.Forms
 
         public void setDashboardServer(ClassDashboardServer dS)
         {
-            this.dS = dS; 
+            this.dS = dS;
+        }
+
+        private void load_Click(object sender, EventArgs e)
+        {
+            this.dS.loadProgram(directory.Text);
         }
 
         private void play_OnClick(object sender, EventArgs e)

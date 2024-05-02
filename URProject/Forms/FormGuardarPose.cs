@@ -21,7 +21,6 @@ namespace URProject.Forms
         {
             InitializeComponent();
             classXml = new ClassXml(this);
-            rtdeClass = new ClassRTDE(this);
 
             
         }
@@ -29,7 +28,7 @@ namespace URProject.Forms
         private void buttonGuardarHome_Click(object sender, EventArgs e)
         {
 
-           if( textBox1.TextLength > 0)
+            if (textBox1.TextLength > 0)
             {
                 DialogResult resultado = MessageBox.Show("¿Are you sure?", "Accept", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -37,7 +36,7 @@ namespace URProject.Forms
                 {
                     MessageBox.Show("Added pose");
                     //classRTDE.getRobotPos();
-                    classXml.addPose(textBox1.Text, 25, 30, 20, 10, 25, 22);
+                    classXml.addPose(textBox1.Text, 25, 30, 20, 10, 25, 22, "Poses");
                 }
                 else
                 {
@@ -49,12 +48,6 @@ namespace URProject.Forms
             {
                 MessageBox.Show("Please enter pose name");
             }
-        }
-
-        private bool formConfirmacionLlamada(object sender, EventArgs e)
-        {
-            return false;
-            
         }
     }
 }

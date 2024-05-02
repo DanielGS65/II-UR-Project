@@ -14,14 +14,13 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace URProject.Forms
 {
-    public partial class ControlArticular : Form
+    public partial class FormArticularMove : Form
     {
         bool change = false;
         ClassRTDE classRTDE;
-        public ControlArticular(ClassRTDE rtdeClass)
+        public FormArticularMove()
         {
             InitializeComponent();
-            classRTDE = rtdeClass;
         }
 
         private void button12_MouseCaptureChanged(object sender, EventArgs e)

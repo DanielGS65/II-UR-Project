@@ -59,17 +59,28 @@ namespace URProject.Classes {
             }
         }
 
-        public void moveArtRobot(double X, double Y, double Z, double RX, double RY, double RZ)
-        {
-            try
-            {
-                var message = "movej([" + X + ", " + Y + ", " + Z + ", " + RX + ", " + RY + ", " + RZ + "], a = 1, v = 0.25, r =0, t =10)" + "\n";
+        public void operateTool(bool activate) {
+            if (activate) {
+                var message = "def startTool():\n" +
+                    "\tset_tool_voltage(24)\n" +
+                    "\tsleep(0.3)\n" +
+                    "\tset_tool_digital_out(0,True)\n" +
+                    "end\n" +
+                    "startTool()";
+
                 var messageBytes = Encoding.UTF8.GetBytes(message);
                 ClassData.clientControl.Send(messageBytes);
             }
-            catch (Exception err)
-            {
-                Logging.LogInformation(3, "FormMain button1_Click - " + err.Message);
+            else{
+                var message = "def stopTool():\n" +
+                    "\tset_tool_digital_out(0,False)\n" +
+                    "\tsleep(0.3)\n" +
+                    "\tset_tool_voltage(0)\n" +
+                    "end\n" +
+                    "stopTool()";
+
+                var messageBytes = Encoding.UTF8.GetBytes(message);
+                ClassData.clientControl.Send(messageBytes);
             }
         }
 

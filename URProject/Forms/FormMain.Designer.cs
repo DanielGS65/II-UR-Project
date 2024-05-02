@@ -27,10 +27,8 @@ namespace URProject {
         private void InitializeComponent() {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
-            this.button1 = new System.Windows.Forms.Button();
             this.panelMainContainer = new System.Windows.Forms.Panel();
             this.buttonMarcos = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.panelMenu = new System.Windows.Forms.Panel();
             this.buttonPoseTrayectory = new System.Windows.Forms.Button();
             this.buttonDashboardServer = new System.Windows.Forms.Button();
@@ -61,32 +59,22 @@ namespace URProject {
             this.textBoxPosZ = new System.Windows.Forms.TextBox();
             this.textBoxPosY = new System.Windows.Forms.TextBox();
             this.textBoxPosX = new System.Windows.Forms.TextBox();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.panelMenu.SuspendLayout();
             this.panelConectionStatus.SuspendLayout();
             this.panelRobotPosition.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(146, 853);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(215, 62);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // panelMainContainer
             // 
             this.panelMainContainer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelMainContainer.BackColor = System.Drawing.Color.Gainsboro;
-            this.panelMainContainer.Location = new System.Drawing.Point(352, 107);
+            this.panelMainContainer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.panelMainContainer.Location = new System.Drawing.Point(352, 108);
             this.panelMainContainer.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panelMainContainer.Name = "panelMainContainer";
-            this.panelMainContainer.Size = new System.Drawing.Size(841, 773);
+            this.panelMainContainer.Size = new System.Drawing.Size(842, 707);
             this.panelMainContainer.TabIndex = 1;
             // 
             // buttonMarcos
@@ -96,27 +84,15 @@ namespace URProject {
             this.buttonMarcos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMarcos.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonMarcos.ForeColor = System.Drawing.Color.White;
-            this.buttonMarcos.Location = new System.Drawing.Point(15, 288);
+            this.buttonMarcos.Location = new System.Drawing.Point(15, 360);
             this.buttonMarcos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonMarcos.Name = "buttonMarcos";
             this.buttonMarcos.Size = new System.Drawing.Size(328, 64);
             this.buttonMarcos.TabIndex = 2;
             this.buttonMarcos.TabStop = false;
-            this.buttonMarcos.Text = "Robot Data";
+            this.buttonMarcos.Text = "Articular Move";
             this.buttonMarcos.UseVisualStyleBackColor = false;
-            this.buttonMarcos.Click += new System.EventHandler(this.buttonDebugMarcos);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Comic Sans MS", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(17, 849);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 65);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Botón de Dioni";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.buttonMarcos.Click += new System.EventHandler(this.buttonArticualMove_Click);
             // 
             // panelMenu
             // 
@@ -129,8 +105,6 @@ namespace URProject {
             this.panelMenu.Controls.Add(this.labelPort);
             this.panelMenu.Controls.Add(this.buttonManualMove);
             this.panelMenu.Controls.Add(this.buttonConnect);
-            this.panelMenu.Controls.Add(this.button2);
-            this.panelMenu.Controls.Add(this.button1);
             this.panelMenu.Controls.Add(this.panelConectionStatus);
             this.panelMenu.Controls.Add(this.buttonMarcos);
             this.panelMenu.Controls.Add(this.labelIP);
@@ -149,7 +123,7 @@ namespace URProject {
             this.buttonPoseTrayectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPoseTrayectory.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonPoseTrayectory.ForeColor = System.Drawing.Color.White;
-            this.buttonPoseTrayectory.Location = new System.Drawing.Point(18, 504);
+            this.buttonPoseTrayectory.Location = new System.Drawing.Point(17, 432);
             this.buttonPoseTrayectory.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonPoseTrayectory.Name = "buttonPoseTrayectory";
             this.buttonPoseTrayectory.Size = new System.Drawing.Size(328, 64);
@@ -166,7 +140,7 @@ namespace URProject {
             this.buttonDashboardServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonDashboardServer.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonDashboardServer.ForeColor = System.Drawing.Color.White;
-            this.buttonDashboardServer.Location = new System.Drawing.Point(16, 432);
+            this.buttonDashboardServer.Location = new System.Drawing.Point(15, 503);
             this.buttonDashboardServer.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonDashboardServer.Name = "buttonDashboardServer";
             this.buttonDashboardServer.Size = new System.Drawing.Size(328, 64);
@@ -183,7 +157,7 @@ namespace URProject {
             this.buttonLogging.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonLogging.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonLogging.ForeColor = System.Drawing.Color.White;
-            this.buttonLogging.Location = new System.Drawing.Point(17, 759);
+            this.buttonLogging.Location = new System.Drawing.Point(19, 851);
             this.buttonLogging.Margin = new System.Windows.Forms.Padding(3, 5, 3, 5);
             this.buttonLogging.Name = "buttonLogging";
             this.buttonLogging.Size = new System.Drawing.Size(328, 64);
@@ -212,7 +186,7 @@ namespace URProject {
             this.buttonManualMove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonManualMove.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.buttonManualMove.ForeColor = System.Drawing.Color.White;
-            this.buttonManualMove.Location = new System.Drawing.Point(16, 360);
+            this.buttonManualMove.Location = new System.Drawing.Point(17, 288);
             this.buttonManualMove.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.buttonManualMove.Name = "buttonManualMove";
             this.buttonManualMove.Size = new System.Drawing.Size(328, 64);
@@ -437,81 +411,105 @@ namespace URProject {
             // 
             // textBoxRotZ
             // 
+            this.textBoxRotZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.textBoxRotZ.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxRotZ.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxRotZ.ForeColor = System.Drawing.Color.White;
             this.textBoxRotZ.Location = new System.Drawing.Point(626, 42);
             this.textBoxRotZ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxRotZ.Name = "textBoxRotZ";
             this.textBoxRotZ.ReadOnly = true;
-            this.textBoxRotZ.Size = new System.Drawing.Size(62, 34);
+            this.textBoxRotZ.Size = new System.Drawing.Size(62, 27);
             this.textBoxRotZ.TabIndex = 5;
             this.textBoxRotZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxRotY
             // 
+            this.textBoxRotY.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.textBoxRotY.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxRotY.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxRotY.ForeColor = System.Drawing.Color.White;
             this.textBoxRotY.Location = new System.Drawing.Point(519, 44);
             this.textBoxRotY.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxRotY.Name = "textBoxRotY";
             this.textBoxRotY.ReadOnly = true;
-            this.textBoxRotY.Size = new System.Drawing.Size(62, 34);
+            this.textBoxRotY.Size = new System.Drawing.Size(62, 27);
             this.textBoxRotY.TabIndex = 4;
             this.textBoxRotY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxRotX
             // 
+            this.textBoxRotX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.textBoxRotX.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxRotX.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxRotX.ForeColor = System.Drawing.Color.White;
             this.textBoxRotX.Location = new System.Drawing.Point(416, 44);
             this.textBoxRotX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxRotX.Name = "textBoxRotX";
             this.textBoxRotX.ReadOnly = true;
-            this.textBoxRotX.Size = new System.Drawing.Size(62, 34);
+            this.textBoxRotX.Size = new System.Drawing.Size(62, 27);
             this.textBoxRotX.TabIndex = 3;
             this.textBoxRotX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxPosZ
             // 
+            this.textBoxPosZ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.textBoxPosZ.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPosZ.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxPosZ.ForeColor = System.Drawing.Color.White;
             this.textBoxPosZ.Location = new System.Drawing.Point(251, 44);
             this.textBoxPosZ.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPosZ.Name = "textBoxPosZ";
             this.textBoxPosZ.ReadOnly = true;
-            this.textBoxPosZ.Size = new System.Drawing.Size(62, 34);
+            this.textBoxPosZ.Size = new System.Drawing.Size(62, 27);
             this.textBoxPosZ.TabIndex = 2;
             this.textBoxPosZ.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxPosY
             // 
+            this.textBoxPosY.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.textBoxPosY.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPosY.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxPosY.ForeColor = System.Drawing.Color.White;
             this.textBoxPosY.Location = new System.Drawing.Point(144, 42);
             this.textBoxPosY.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPosY.Name = "textBoxPosY";
             this.textBoxPosY.ReadOnly = true;
-            this.textBoxPosY.Size = new System.Drawing.Size(62, 34);
+            this.textBoxPosY.Size = new System.Drawing.Size(62, 27);
             this.textBoxPosY.TabIndex = 1;
             this.textBoxPosY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBoxPosX
             // 
+            this.textBoxPosX.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
+            this.textBoxPosX.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxPosX.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.textBoxPosX.ForeColor = System.Drawing.Color.White;
             this.textBoxPosX.Location = new System.Drawing.Point(40, 42);
             this.textBoxPosX.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBoxPosX.Name = "textBoxPosX";
             this.textBoxPosX.ReadOnly = true;
-            this.textBoxPosX.Size = new System.Drawing.Size(62, 34);
+            this.textBoxPosX.Size = new System.Drawing.Size(62, 27);
             this.textBoxPosX.TabIndex = 0;
             this.textBoxPosX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(200)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
             this.ClientSize = new System.Drawing.Size(1205, 921);
             this.Controls.Add(this.panelRobotPosition);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelMainContainer);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2, 1, 2, 1);
+            this.MaximizeBox = false;
             this.Name = "FormMain";
             this.Text = "UR-Project";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -527,11 +525,8 @@ namespace URProject {
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panelMainContainer;
         private System.Windows.Forms.Button buttonMarcos;
-        private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel panelMenu;
         private System.Windows.Forms.Label labelTitle;
         private System.Windows.Forms.Label labelRobot;
@@ -562,6 +557,7 @@ namespace URProject {
         public System.Windows.Forms.TextBox textBoxPosX;
         private System.Windows.Forms.Button buttonPoseTrayectory;
         private System.Windows.Forms.Button buttonDashboardServer;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
