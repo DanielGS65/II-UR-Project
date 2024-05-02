@@ -74,10 +74,20 @@ namespace URProject.Classes
 
         private void AsynchReceive(IAsyncResult ar)
         {
+            if(ClassData.rtdeClient == null)
+            {
+                if (OnSockClosed != null)
+                {
+                    OnSockClosed(this, null);
+                }
+                return;
+            }
+
             int bytesRead = ClassData.rtdeClient.Client.EndReceive(ar);
+
             byte[] InternalbufRecv = (byte[])ar.AsyncState;
 
-            if (bytesRead > 0 && ClassData.rtdeClient != null)
+            if (bytesRead > 0)
             {
 
                 lock (bufRecv)
@@ -230,7 +240,7 @@ namespace URProject.Classes
 
         static void Ur3_OnSockClosed(object sender, EventArgs e)
         {
-            Debug.WriteLine("Closed");
+            Debug.WriteLine("ClasRTDE - Socket cerrado");
         }
         void Ur3_OnDataReceive(object sender, EventArgs e)
         {
@@ -238,6 +248,10 @@ namespace URProject.Classes
             {
                 ClassData.currentPos[i] = UrOutputs.actual_TCP_pose[i];
             }
+
+            ClassData.freeDriveMode = (UrOutputs.robot_status_bits == 5 ? true : false);
+            ClassData.toolSuctionCheck = (UrOutputs.tool_analog_input0 >= 5 ? true : false);
+            
         }
 
     }

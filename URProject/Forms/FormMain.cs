@@ -144,7 +144,7 @@ namespace URProject {
                 }
             } else {
                 Logging.LogInformation(1, "FormMain buttonConnect_Click - Disconnecting");
-                rtdeClass.Disconnect();
+                ClassData.rtdeClient = null;
                 ClassData.clientControl = null;
                 ClassData.clientDashboardServer = null;
                 ChangeConnectionStatus(false);

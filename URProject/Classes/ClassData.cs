@@ -25,5 +25,7 @@ namespace URProject {
         public static int logLevel = 3;
 
         public static List<double> currentPos = new List<double> { 0, 0, 0, 0, 0, 0 };
+
+        public static bool toolSuctionCheck;
     }
 }
