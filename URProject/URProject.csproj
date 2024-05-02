@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\ClassControl.cs" />
+    <Compile Include="Classes\ClassDashboardServer.cs" />
     <Compile Include="Classes\ClassData.cs" />
     <Compile Include="Classes\ClassLogging.cs" />
     <Compile Include="Classes\ClassRTDE.cs" />
@@ -59,6 +60,12 @@
     </Compile>
     <Compile Include="Forms\ControlArticular.Designer.cs">
       <DependentUpon>ControlArticular.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormDashboardServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormDashboardServer.Designer.cs">
+      <DependentUpon>FormDashboardServer.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormGuardarPose.cs">
       <SubType>Form</SubType>
@@ -112,6 +119,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\ControlArticular.resx">
       <DependentUpon>ControlArticular.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormDashboardServer.resx">
+      <DependentUpon>FormDashboardServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormGuardarPose.resx">
       <DependentUpon>FormGuardarPose.cs</DependentUpon>
