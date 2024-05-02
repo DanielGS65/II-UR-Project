@@ -14,11 +14,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace URProject.Forms
 {
-    public partial class ControlArticular : Form
+    public partial class FormArticularMove : Form
     {
         bool change = false;
         ClassRTDE classRTDE;
-        public ControlArticular()
+        public FormArticularMove()
         {
             InitializeComponent();
         }
