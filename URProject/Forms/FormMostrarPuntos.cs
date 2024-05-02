@@ -82,7 +82,14 @@ namespace URProject.Forms
                 {
                     MessageBox.Show("Added pose");
                     //classRTDE.getRobotPos();
-                    classxml.addPose(textBox1.Text, 25, 30, 20, 10, 25, 22, "Poses");
+                    classxml.addPose(textBox1.Text, ClassData.currentPos[0], ClassData.currentPos[1], ClassData.currentPos[2], ClassData.currentPos[3], ClassData.currentPos[4], ClassData.currentPos[5], "Poses");
+
+                    XmlReader data = this.classxml.readTrajectory();
+                    DataSet dataSet = new DataSet();
+                    dataSet.ReadXml(data);
+
+                    grid.DataSource = null;
+                    grid.DataSource = dataSet.Tables["Pose"];
                 }
                 else
                 {

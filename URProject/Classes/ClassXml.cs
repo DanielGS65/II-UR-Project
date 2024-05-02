@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -41,6 +42,8 @@ namespace URProject.Classes {
         #region CreateFunctions
 
         public void createConfig() {
+
+            Directory.CreateDirectory(Path.GetDirectoryName(ClassData.configPath));
 
             XmlDocument document = new XmlDocument();
 

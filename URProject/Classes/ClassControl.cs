@@ -51,7 +51,7 @@ namespace URProject.Classes {
 
         public void moveRobot(List<double> position) {
             try {
-                var message = "movej(p[" + position[0]/100 + ", " + position[1]/100 + ", " + position[2]/100 + ", " + position[3]/10 + ", " + position[4]/10 + ", " + position[5]/10 + "], a = 1, v = 0.25, r =0, t =10)" + "\n";
+                var message = "movej(p[" + position[0] + ", " + position[1] + ", " + position[2] + ", " + position[3] + ", " + position[4] + ", " + position[5] + "], a = " + ClassData.acceleration + ", v = " + ClassData.velocity + ", r = " + ClassData.precision + ", t =10)" + "\n";
                 var messageBytes = Encoding.UTF8.GetBytes(message);
                 ClassData.clientControl.Send(messageBytes);
             } catch (Exception err) {
@@ -87,20 +87,14 @@ namespace URProject.Classes {
         public void ToggleFreeMovement() {
             if (!ClassData.freeDriveMode) {
                 try {
-                    for (int i = 0; i < 10; i++) {
-
-
-                        string message = "def freeDrive():\n" +
-                            "\tfreedrive_mode()\n " +
-                            "\tsleep(100)\n" +
-                            "end\n" +
-                            "freeDrive()";
-                        var messageBytes = Encoding.UTF8.GetBytes(message);
-                        ClassData.clientControl.Send(messageBytes);
-                        
-                    }
-
-                    ClassData.freeDriveMode = true;
+                    string message = "def freeDrive():\n" +
+                        "\tfreedrive_mode()\n " +
+                        "\tsleep(100)\n" +
+                        "end\n" +
+                        "freeDrive()";
+                    var messageBytes = Encoding.UTF8.GetBytes(message);
+                    ClassData.clientControl.Send(messageBytes);
+                    //ClassData.freeDriveMode = true;
                 } catch (Exception err) {
                     Logging.LogInformation(3, "FormMain button1_Click - " + err.Message);
                 }
@@ -109,7 +103,7 @@ namespace URProject.Classes {
                     string message = "end_freedrive_mode() \n ";
                     var messageBytes = Encoding.UTF8.GetBytes(message);
                     ClassData.clientControl.Send(messageBytes);
-                    ClassData.freeDriveMode = false;
+                    //ClassData.freeDriveMode = false;
                 } catch (Exception err) {
                     Logging.LogInformation(3, "FormMain button1_Click - " + err.Message);
                 }

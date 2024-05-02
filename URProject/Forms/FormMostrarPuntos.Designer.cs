@@ -57,7 +57,7 @@
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(180)))), ((int)(((byte)(200)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.grid.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.grid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.grid.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.grid.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(80)))));
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
@@ -86,7 +86,7 @@
             this.grid.RowHeadersWidth = 20;
             this.grid.RowTemplate.Height = 24;
             this.grid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid.Size = new System.Drawing.Size(412, 283);
+            this.grid.Size = new System.Drawing.Size(552, 283);
             this.grid.TabIndex = 0;
             // 
             // buttonAddToTrajectory
@@ -95,7 +95,7 @@
             this.buttonAddToTrajectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAddToTrajectory.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonAddToTrajectory.ForeColor = System.Drawing.Color.White;
-            this.buttonAddToTrajectory.Location = new System.Drawing.Point(153, 405);
+            this.buttonAddToTrajectory.Location = new System.Drawing.Point(305, 404);
             this.buttonAddToTrajectory.Name = "buttonAddToTrajectory";
             this.buttonAddToTrajectory.Size = new System.Drawing.Size(144, 46);
             this.buttonAddToTrajectory.TabIndex = 1;
@@ -136,14 +136,14 @@
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.gridTrajectory.DefaultCellStyle = dataGridViewCellStyle6;
             this.gridTrajectory.EnableHeadersVisualStyles = false;
-            this.gridTrajectory.Location = new System.Drawing.Point(494, 83);
+            this.gridTrajectory.Location = new System.Drawing.Point(650, 83);
             this.gridTrajectory.Name = "gridTrajectory";
             this.gridTrajectory.ReadOnly = true;
             this.gridTrajectory.RowHeadersVisible = false;
             this.gridTrajectory.RowHeadersWidth = 51;
             this.gridTrajectory.RowTemplate.Height = 24;
             this.gridTrajectory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.gridTrajectory.Size = new System.Drawing.Size(393, 283);
+            this.gridTrajectory.Size = new System.Drawing.Size(483, 283);
             this.gridTrajectory.TabIndex = 2;
             // 
             // buttonExecTrajectory
@@ -152,7 +152,7 @@
             this.buttonExecTrajectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExecTrajectory.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonExecTrajectory.ForeColor = System.Drawing.Color.White;
-            this.buttonExecTrajectory.Location = new System.Drawing.Point(618, 405);
+            this.buttonExecTrajectory.Location = new System.Drawing.Point(770, 404);
             this.buttonExecTrajectory.Name = "buttonExecTrajectory";
             this.buttonExecTrajectory.Size = new System.Drawing.Size(144, 46);
             this.buttonExecTrajectory.TabIndex = 3;
@@ -165,7 +165,7 @@
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(100)))), ((int)(((byte)(120)))));
             this.textBox1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.textBox1.ForeColor = System.Drawing.Color.White;
-            this.textBox1.Location = new System.Drawing.Point(153, 489);
+            this.textBox1.Location = new System.Drawing.Point(305, 488);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(475, 39);
@@ -177,7 +177,7 @@
             this.buttonSavePose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSavePose.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonSavePose.ForeColor = System.Drawing.Color.White;
-            this.buttonSavePose.Location = new System.Drawing.Point(650, 482);
+            this.buttonSavePose.Location = new System.Drawing.Point(802, 481);
             this.buttonSavePose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSavePose.Name = "buttonSavePose";
             this.buttonSavePose.Size = new System.Drawing.Size(112, 52);
@@ -192,7 +192,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(390, 405);
+            this.button1.Location = new System.Drawing.Point(542, 404);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(144, 46);
             this.button1.TabIndex = 6;
@@ -205,7 +205,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(90)))));
-            this.ClientSize = new System.Drawing.Size(900, 563);
+            this.ClientSize = new System.Drawing.Size(1175, 563);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.buttonSavePose);
