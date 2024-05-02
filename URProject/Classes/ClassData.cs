@@ -24,8 +24,17 @@ namespace URProject {
         public static bool debugMode;
         public static int logLevel = 3;
 
+        public static double acceleration = 0;
+        public static double velocity = 0;
+        public static double precision = 0;
+        public static bool toolStatus = false;
+
         public static List<double> currentPos = new List<double> { 0, 0, 0, 0, 0, 0 };
 
         public static bool toolSuctionCheck;
+
+        public static string ipIOlink = "192.168.1.250";
+        public static int portIOlink = 502;
+        public static int registerIOLink = 2100;
     }
 }
