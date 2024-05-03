@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace URProject.Classes {
     public class ClassControl {
@@ -36,7 +34,7 @@ namespace URProject.Classes {
                 ClassData.clientControl.Connect(ipEndPoint);
                 Logging.LogInformation(1, "ClassControl connectRobotControl - Socket Created");
 
-                moveRobot(ClassData.currentPos);
+                //moveRobot(ClassData.currentPos);
             } catch (Exception err) {
                 Logging.LogInformation(3, "ClassControl connectRobotControl - " + err.Message);
             }
@@ -61,26 +59,31 @@ namespace URProject.Classes {
 
         public void operateTool(bool activate) {
             if (activate) {
-                var message = "def startTool():\n" +
-                    "\tset_tool_voltage(24)\n" +
-                    "\tsleep(0.3)\n" +
-                    "\tset_tool_digital_out(0,True)\n" +
-                    "end\n" +
-                    "startTool()";
-
+                var message = "\tset_tool_voltage(24)\n";
                 var messageBytes = Encoding.UTF8.GetBytes(message);
                 ClassData.clientControl.Send(messageBytes);
+
+                Thread.Sleep(1000);
+
+                message = "\tset_tool_digital_out(0,True)\n";
+                messageBytes = Encoding.UTF8.GetBytes(message);
+                ClassData.clientControl.Send(messageBytes);
+
+                ClassData.toolStatus = true;            
             }
             else{
-                var message = "def stopTool():\n" +
-                    "\tset_tool_digital_out(0,False)\n" +
-                    "\tsleep(0.3)\n" +
-                    "\tset_tool_voltage(0)\n" +
-                    "end\n" +
-                    "stopTool()";
-
+                var message = "\tset_tool_voltage(0)\n";
                 var messageBytes = Encoding.UTF8.GetBytes(message);
                 ClassData.clientControl.Send(messageBytes);
+
+                Thread.Sleep(1000);
+
+                message = "\tset_tool_digital_out(0,False)\n";
+                messageBytes = Encoding.UTF8.GetBytes(message);
+                ClassData.clientControl.Send(messageBytes);
+
+                ClassData.toolStatus = true;
+                ClassData.toolStatus = false;
             }
         }
 
@@ -94,7 +97,7 @@ namespace URProject.Classes {
                         "freeDrive()";
                     var messageBytes = Encoding.UTF8.GetBytes(message);
                     ClassData.clientControl.Send(messageBytes);
-                    //ClassData.freeDriveMode = true;
+                    ClassData.freeDriveMode = true;
                 } catch (Exception err) {
                     Logging.LogInformation(3, "FormMain button1_Click - " + err.Message);
                 }
@@ -103,12 +106,11 @@ namespace URProject.Classes {
                     string message = "end_freedrive_mode() \n ";
                     var messageBytes = Encoding.UTF8.GetBytes(message);
                     ClassData.clientControl.Send(messageBytes);
-                    //ClassData.freeDriveMode = false;
+                    ClassData.freeDriveMode = false;
                 } catch (Exception err) {
                     Logging.LogInformation(3, "FormMain button1_Click - " + err.Message);
                 }
             }
-            
         }
 
         #endregion RobotMovement

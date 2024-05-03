@@ -67,7 +67,7 @@ namespace URProject {
             dashboardServerForm.TopLevel = false;
             this.panelMainContainer.Controls.Add(dashboardServerForm);
 
-            manualMoveForm = new FormManualMove(rtdeClass,controlClass);
+            manualMoveForm = new FormManualMove(rtdeClass,controlClass,dashboardServerClass);
             manualMoveForm.TopLevel = false;
             manualMoveForm.Size = panelMainContainer.Size;
             this.panelMainContainer.Controls.Add(manualMoveForm);
@@ -194,6 +194,9 @@ namespace URProject {
             dashboardServerForm.Show();
         }
 
+        private void buttonAutonomous_Click(object sender, EventArgs e) {
+
+        }
 
         #endregion FormFunctions
 
@@ -261,6 +264,7 @@ namespace URProject {
             textBoxRotX.Text = ClassData.currentPos[3].ToString();
             textBoxRotY.Text = ClassData.currentPos[4].ToString();
             textBoxRotZ.Text = ClassData.currentPos[5].ToString();
+            label10.Text = ClassData.freeDriveMode.ToString();
         }
 
         #endregion SystemTrayFunctions
@@ -290,10 +294,7 @@ namespace URProject {
             richTextBoxLogger.Visible = false;
         }
 
-
-
         #endregion VisualFunctions
-
 
     }
 }

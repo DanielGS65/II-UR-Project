@@ -152,11 +152,11 @@
             this.buttonExecTrajectory.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonExecTrajectory.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonExecTrajectory.ForeColor = System.Drawing.Color.White;
-            this.buttonExecTrajectory.Location = new System.Drawing.Point(770, 404);
+            this.buttonExecTrajectory.Location = new System.Drawing.Point(752, 404);
             this.buttonExecTrajectory.Name = "buttonExecTrajectory";
-            this.buttonExecTrajectory.Size = new System.Drawing.Size(144, 46);
+            this.buttonExecTrajectory.Size = new System.Drawing.Size(199, 46);
             this.buttonExecTrajectory.TabIndex = 3;
-            this.buttonExecTrajectory.Text = "Execute trajectory";
+            this.buttonExecTrajectory.Text = "Save Trajectory";
             this.buttonExecTrajectory.UseVisualStyleBackColor = false;
             this.buttonExecTrajectory.Click += new System.EventHandler(this.buttonExecTrajectory_Click);
             // 
@@ -168,7 +168,7 @@
             this.textBox1.Location = new System.Drawing.Point(305, 488);
             this.textBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(475, 39);
+            this.textBox1.Size = new System.Drawing.Size(514, 39);
             this.textBox1.TabIndex = 5;
             // 
             // buttonSavePose
@@ -177,7 +177,7 @@
             this.buttonSavePose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSavePose.Font = new System.Drawing.Font("Segoe UI", 12F);
             this.buttonSavePose.ForeColor = System.Drawing.Color.White;
-            this.buttonSavePose.Location = new System.Drawing.Point(802, 481);
+            this.buttonSavePose.Location = new System.Drawing.Point(839, 481);
             this.buttonSavePose.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.buttonSavePose.Name = "buttonSavePose";
             this.buttonSavePose.Size = new System.Drawing.Size(112, 52);

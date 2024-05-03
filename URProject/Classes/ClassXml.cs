@@ -101,7 +101,6 @@ namespace URProject.Classes {
 
             XmlNode posesRoot = document.CreateElement("Trajectory");
 
-
             document.AppendChild(posesRoot);
 
             document.Save(ClassData.trajectoryPath);
@@ -161,7 +160,7 @@ namespace URProject.Classes {
                 }
                 else
                 {
-                    createTrayectory();
+                   createTrayectory();
                 }
                 
                 document.Load(path);

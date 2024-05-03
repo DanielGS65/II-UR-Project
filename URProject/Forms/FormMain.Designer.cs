@@ -45,6 +45,7 @@ namespace URProject {
             this.labelTitle = new System.Windows.Forms.Label();
             this.notifyIconMain = new System.Windows.Forms.NotifyIcon(this.components);
             this.panelRobotPosition = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -60,6 +61,7 @@ namespace URProject {
             this.textBoxPosY = new System.Windows.Forms.TextBox();
             this.textBoxPosX = new System.Windows.Forms.TextBox();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.buttonAutonomous = new System.Windows.Forms.Button();
             this.panelMenu.SuspendLayout();
             this.panelConectionStatus.SuspendLayout();
             this.panelRobotPosition.SuspendLayout();
@@ -99,6 +101,7 @@ namespace URProject {
             this.panelMenu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panelMenu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(150)))), ((int)(((byte)(150)))));
+            this.panelMenu.Controls.Add(this.buttonAutonomous);
             this.panelMenu.Controls.Add(this.buttonPoseTrayectory);
             this.panelMenu.Controls.Add(this.buttonDashboardServer);
             this.panelMenu.Controls.Add(this.buttonLogging);
@@ -301,6 +304,7 @@ namespace URProject {
             this.panelRobotPosition.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panelRobotPosition.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(140)))), ((int)(((byte)(190)))), ((int)(((byte)(190)))));
+            this.panelRobotPosition.Controls.Add(this.label10);
             this.panelRobotPosition.Controls.Add(this.label9);
             this.panelRobotPosition.Controls.Add(this.label6);
             this.panelRobotPosition.Controls.Add(this.label7);
@@ -320,6 +324,15 @@ namespace URProject {
             this.panelRobotPosition.Name = "panelRobotPosition";
             this.panelRobotPosition.Size = new System.Drawing.Size(875, 92);
             this.panelRobotPosition.TabIndex = 5;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(758, 42);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(60, 20);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "label10";
             // 
             // label9
             // 
@@ -498,6 +511,23 @@ namespace URProject {
             this.timer1.Enabled = true;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
+            // buttonAutonomous
+            // 
+            this.buttonAutonomous.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.buttonAutonomous.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(130)))), ((int)(((byte)(130)))));
+            this.buttonAutonomous.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAutonomous.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.buttonAutonomous.ForeColor = System.Drawing.Color.White;
+            this.buttonAutonomous.Location = new System.Drawing.Point(3, 575);
+            this.buttonAutonomous.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.buttonAutonomous.Name = "buttonAutonomous";
+            this.buttonAutonomous.Size = new System.Drawing.Size(358, 64);
+            this.buttonAutonomous.TabIndex = 13;
+            this.buttonAutonomous.TabStop = false;
+            this.buttonAutonomous.Text = "Autonomous Mode";
+            this.buttonAutonomous.UseVisualStyleBackColor = false;
+            this.buttonAutonomous.Click += new System.EventHandler(this.buttonAutonomous_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -558,6 +588,8 @@ namespace URProject {
         private System.Windows.Forms.Button buttonPoseTrayectory;
         private System.Windows.Forms.Button buttonDashboardServer;
         private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button buttonAutonomous;
     }
 }
 

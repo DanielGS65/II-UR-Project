@@ -57,13 +57,13 @@ namespace URProject.Forms
         {
            
             DataTable dt = gridTrajectory.DataSource as DataTable;
-            if (File.Exists(ClassData.trajectoryPath))
+            /*if (File.Exists(ClassData.trajectoryPath))
             {
-                File.Delete(ClassData.trajectoryPath);
-            }
+                //File.Delete(ClassData.trajectoryPath);
+            }*/
             foreach (DataGridViewRow row in gridTrajectory.Rows)
             {
-                if (row.Index != gridTrajectory.RowCount - 1)
+                if (row.Index != gridTrajectory.RowCount)
                 {
                     classxml.addPose(row.Cells[0].Value.ToString(), double.Parse(row.Cells[1].Value.ToString()), double.Parse(row.Cells[2].Value.ToString()), double.Parse(row.Cells[3].Value.ToString()), double.Parse(row.Cells[4].Value.ToString()), double.Parse(row.Cells[5].Value.ToString()), double.Parse(row.Cells[6].Value.ToString()), "Trajectory");
 

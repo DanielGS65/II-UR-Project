@@ -249,7 +249,7 @@ namespace URProject.Classes
                 ClassData.currentPos[i] = UrOutputs.actual_TCP_pose[i];
             }
 
-            ClassData.freeDriveMode = (UrOutputs.robot_status_bits == 5 ? true : false);
+            //ClassData.freeDriveMode = (UrOutputs.robot_status_bits == 5 ? true : false);
             ClassData.toolSuctionCheck = (UrOutputs.tool_analog_input0 >= 5 ? true : false);
             
         }

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace URProject {
     public static class ClassData {
@@ -15,6 +16,12 @@ namespace URProject {
         public static string trajectoryPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), "UR-Project", "trajectory.xml");
 
         public static Socket clientControl;
+
+        public static double acceleration = 1;
+        public static double velocity = 0.25;
+        public static double precision = 0;
+
+        public static bool toolStatus = false;
 
         public static bool freeDriveMode = false;
         public static Socket clientDashboardServer;

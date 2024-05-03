@@ -15,14 +15,16 @@ namespace URProject.Forms {
     public partial class FormManualMove : Form {
         ClassControl controlClass;
         ClassRTDE rtdeClass;
+        ClassDashboardServer dashboardServerClass;
 
         // Variables
         private int speed; // Variable para almacenar la velocidad
         private int accel; // Variable para almacenar la acceleracion
         private int precision; // Variable para almacenar la precision
-        public FormManualMove(ClassRTDE rtdeClass, ClassControl controlClass) {
+        public FormManualMove(ClassRTDE rtdeClass, ClassControl controlClass, ClassDashboardServer dashboardServerClass) {
             InitializeComponent();
             this.controlClass = controlClass;
+            this.dashboardServerClass = dashboardServerClass;
         }
 
         public void buttonMove_Click(object sender, EventArgs e)
@@ -95,16 +97,11 @@ namespace URProject.Forms {
 
         private void button_freedrive_Click(object sender, EventArgs e) {
             if (!ClassData.freeDriveMode) {
-                while (!ClassData.freeDriveMode) {
-                    controlClass.ToggleFreeMovement();
-                    Thread.Sleep(100);
-                }
+                controlClass.ToggleFreeMovement();
                 button_freedrive.BackColor = Color.Green;
             } else {
-                while (ClassData.freeDriveMode) {
-                    controlClass.ToggleFreeMovement();
-                    Thread.Sleep(100);
-                }
+                controlClass.ToggleFreeMovement();
+                dashboardServerClass.stopProgram();
                 button_freedrive.BackColor = Color.Red;
             }
         }
@@ -117,7 +114,7 @@ namespace URProject.Forms {
             } else {
                 panelSuctionLed.BackColor = Color.Red;
             }
-            
+            dashboardServerClass.stopProgram();
         }
     }
 }
