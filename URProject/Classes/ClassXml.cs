@@ -18,7 +18,6 @@ namespace URProject.Classes {
         #region LocalVariables
 
         FormMain mainForm;
-        FormGuardarPose formGuardarPose;
 
         #endregion LocalVariables
 
@@ -30,10 +29,7 @@ namespace URProject.Classes {
         public ClassXml(FormMain mainForm) {
             this.mainForm = mainForm;
         }
-        public ClassXml(FormGuardarPose formGuardarPose)
-        {
-            this.formGuardarPose = formGuardarPose;
-        }
+
         #endregion InitFunctions
 
         // ---------------------------

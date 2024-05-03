@@ -18,8 +18,10 @@ namespace URProject {
         public static Socket clientControl;
 
         public static double acceleration = 1;
-        public static double velocity = 0.25;
+        public static double velocity = 0.5;
         public static double precision = 0;
+
+        public static bool autonomousMode = false;
 
         public static bool toolStatus = false;
 

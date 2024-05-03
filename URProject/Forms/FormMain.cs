@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Sockets;
 using URProject.Classes;
 using URProject.Forms;
+using System.Xml;
 
 namespace URProject {
     public partial class FormMain : Form {
@@ -22,9 +23,7 @@ namespace URProject {
 
         private FormManualMove manualMoveForm;
         private FormSettings settingsForm;
-        private FormInfoSistema formInfoSistema;
         private Form_dioni dioniForm;
-        private FormGuardarPose formGuardarPose;
         private FormDashboardServer dashboardServerForm;
         private FormArticularMove articularMoveForm;
 
@@ -164,14 +163,6 @@ namespace URProject {
             
         }
 
-        private void buttonDebugMarcos(object sender, EventArgs e) {
-            formInfoSistema.Show();
-        }
-
-        private void button2_Click(object sender, EventArgs e) {
-            dioniForm.Show();
-        }
-
         private void buttonLogging_Click(object sender, EventArgs e) {
             hideSecondaryForms();
             richTextBoxLogger.Visible = true;
@@ -195,7 +186,70 @@ namespace URProject {
         }
 
         private void buttonAutonomous_Click(object sender, EventArgs e) {
+            if (!ClassData.autonomousMode) {
+                try {
+                    ClassData.autonomousMode = true;
+                    string message = "def coop_Project():\r\n" +
+                        "\twhile(True):\r\n" +
+                        "\t\tmodbus_set_output_register(\"cinta_pot\",1,False)\r\n" +
+                        "\t\tboton = modbus_get_signal_status(\"boton\",False)\r\n" +
+                        "\t\tsensores = modbus_get_signal_status(\"sensores\",False)\r\n" +
+                        "\t\tif(not boton == 0):\r\n" +
+                        "\t\t\tmodbus_set_output_register(\"led\",0,False)\r\n" +
+                        "\t\t\tmodbus_set_output_register(\"cinta_stop\",0,False)\r\n" +
+                        "\t\t\tmodbus_set_output_register(\"cinta_vel\",1,False)\r\n" +
+                        "\t\tend\r\n" +
+                        "\t\tif(not sensores == 0):\r\n" +
+                        "\t\t\tmodbus_set_output_register(\"cinta_stop\",1,False)\r\n" +
+                        "\t\t\tmodbus_set_output_register(\"cinta_vel\",0,False)\r\n\r\n";
 
+
+                    XmlDocument document = new XmlDocument();
+
+                    //TODO: Change variable to the trajectory path
+                    document.Load(ClassData.trajectoryPath);
+
+                    //XmlReader data = new XmlNodeReader(document);
+
+                    XmlNode node = document.SelectSingleNode("Trajectory");
+
+                    int count = 0;
+
+                    foreach (XmlNode pose in node.ChildNodes) {
+                        message = message + "\t\t\tmovej(p[" + pose.Attributes["X"].Value.ToString() + ", " + pose.Attributes["Y"].Value.ToString() + ", " + pose.Attributes["Z"].Value.ToString() + ", " + pose.Attributes["Rx"].Value.ToString() + ", " + pose.Attributes["Ry"].Value.ToString() + ", " + pose.Attributes["Rz"].Value.ToString() + "], a = " + ClassData.acceleration + ", v = " + ClassData.velocity + ", r = " + ClassData.precision + ", t =10)" + "\r\n";
+                        count++;
+                        if (count == 2) {
+                            message = message + "\t\t\tset_tool_voltage(24)\r\n" +
+                            "\t\t\tsleep(1)\r\n" +
+                            "\t\t\tset_tool_digital_out(0,True)\r\n" +
+                            "\t\t\tsleep(0.5)\r\n\r\n";
+                        }
+                        if (count == 5) {
+                            message = message + "\t\t\tset_tool_digital_out(0,False)\r\n" +
+                            "\t\t\tsleep(1)\r\n" +
+                            "\t\t\tset_tool_voltage(0)\r\n" +
+                            "\t\t\tsleep(0.5)\r\n";
+                        }
+                    }
+
+                    message = message + "\t\t\tmodbus_set_output_register(\"led\",255,False)\r\n" +
+
+                        "\t\tend\r\n" +
+                        "\tend\r\n" +
+                        "end\r\n" +
+                        "coop_Project()";
+
+                    var messageBytes = Encoding.UTF8.GetBytes(message);
+                    ClassData.clientControl.Send(messageBytes);
+                    buttonAutonomous.BackColor = Color.Green;
+                    Logging.LogInformation(0, "FormMain buttonAutonomous_Click - " + message);
+
+                } catch(Exception err) { Logging.LogInformation(3, "FormMain buttonAutonomous_Click - " + err.Message); }
+            } else {
+                ClassData.autonomousMode = false;
+                dashboardServerClass.stopProgram();
+                buttonAutonomous.BackColor = Color.Gray;
+            }
         }
 
         #endregion FormFunctions
@@ -264,7 +318,6 @@ namespace URProject {
             textBoxRotX.Text = ClassData.currentPos[3].ToString();
             textBoxRotY.Text = ClassData.currentPos[4].ToString();
             textBoxRotZ.Text = ClassData.currentPos[5].ToString();
-            label10.Text = ClassData.freeDriveMode.ToString();
         }
 
         #endregion SystemTrayFunctions

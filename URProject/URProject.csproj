@@ -58,12 +58,6 @@
     <Compile Include="Classes\ClassXml.cs" />
     <Compile Include="Classes\Encoder_Decoder.cs" />
     <Compile Include="Classes\UR_Data.cs" />
-    <Compile Include="Forms\FormTrayectory.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormTrayectory.Designer.cs">
-      <DependentUpon>FormTrayectory.cs</DependentUpon>
-    </Compile>
     <Compile Include="Forms\FormArticularMove.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -75,18 +69,6 @@
     </Compile>
     <Compile Include="Forms\FormDashboardServer.Designer.cs">
       <DependentUpon>FormDashboardServer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormGuardarPose.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormGuardarPose.Designer.cs">
-      <DependentUpon>FormGuardarPose.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\FormInfoSistema.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\FormInfoSistema.Designer.cs">
-      <DependentUpon>FormInfoSistema.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\FormLogging.cs">
       <SubType>Form</SubType>
@@ -126,20 +108,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\FormTrayectory.resx">
-      <DependentUpon>FormTrayectory.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormArticularMove.resx">
       <DependentUpon>FormArticularMove.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormDashboardServer.resx">
       <DependentUpon>FormDashboardServer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormGuardarPose.resx">
-      <DependentUpon>FormGuardarPose.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\FormInfoSistema.resx">
-      <DependentUpon>FormInfoSistema.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\FormLogging.resx">
       <DependentUpon>FormLogging.cs</DependentUpon>
